@@ -512,7 +512,9 @@ class Gest extends MultiFunction {
         }
         if(isset($master)) array_push($c,"master = $master");
         $this->update("users", $c, "id = $id");
-        $this->uploadFile($edit, "file/personal_photos/", "photo", "users", "photo", $photo['name'], $oldName);
+        if(strlen($photo['name'])>0) {
+            $this->uploadFile($edit, "file/personal_photos/", "photo", "users", "photo", $photo['name'], $oldName);
+        }
         $this->addLog("aggiornato i dati dell'utente $cognome $nome [$id].", true);
     }
     public function getPendingUsers(){
