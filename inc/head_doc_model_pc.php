@@ -6,6 +6,7 @@
         <p class="sedeLegale"><?php echo $sede_legale; ?></p>
         <p class="sedeOp"><?php echo $sede_operativa; ?></p>
         <p class="cf"><?php echo $CF_asso; ?></p>
+        <p class="fax"><?php echo $fax; ?></p>
         <p class="pec"><?php echo $pec; ?></p>
         <p class="tel"><?php echo $tel_asso; ?></p>
 
