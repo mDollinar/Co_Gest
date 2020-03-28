@@ -8,8 +8,8 @@
 *.iml
 php_barcode-master/
 inc/barcode128.php
-**core/config.php
-**/core/constants.php
+core/config.php
+core/constants.php
 **/error_log
 error_log
 AssoGest.iml
