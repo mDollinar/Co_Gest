@@ -1,0 +1,203 @@
+@import url("https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css");
+@import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+
+input.input-index{
+    width: 20vw;
+    margin: 5px auto;
+}
+
+input[type=submit].btn-info.btn-index{
+    width: 15vw;
+    margin: 5px auto;
+    display: block;
+}
+
+.btn{
+    margin: 0 5px;
+}
+
+.btn-primary{
+    width: 15vw;
+    margin: 5px auto;
+    display: block;
+}
+
+.form-group{
+    margin: 15px 10px;
+}
+.form-group h1, .form-group a{
+    text-align: center;
+    display: block;
+    width: 100%;
+    margin: 20px 0;
+    font-size: 1.8em;
+}
+
+.alert{
+    font-size: 1.5em;
+    font-weight: bold;
+    width: 50%;
+    margin: 10px auto;
+    text-align: center;
+}
+h4>strong{
+    font-size: 1.2em;
+    font-style: italic;
+    text-decoration: underline;
+}
+a.btn.btn-info.btn-index{
+    width: 50%;
+    font-size: 1em;
+    margin: 10px auto;
+}
+h1{
+    text-align: center;
+}
+input.btn.btn-info, input.btn.btn-danger{
+    width: auto !important;
+    display: block;
+    font-size: 1em;
+    margin: 10px auto;
+}
+.y{
+    color: #00ab00;
+    font-weight: bold;
+}
+.null{
+    color: #ab17a7;
+    font-weight: bold;
+}
+.n{
+    color: #d80000;
+    font-weight: bold;
+}
+input#attach_front+a, input#attach_back+a, input#attach_master+a, input#photo+a {
+    text-align: left;
+    margin: 0;
+    font-size: 0.9em;
+}
+.left{
+    text-align: left !important;
+}
+
+button.btn{
+    display: block;
+    margin: 10px auto;
+
+}
+a:hover{
+    text-decoration: none;
+}
+
+.container{
+    margin-top: 20px;
+}
+.btn-group button{
+    margin-right: 5px;
+    margin-bottom: 0;
+}
+.list-group-item{
+    padding: 10px;
+    text-align: center;
+}
+.card-body{
+    padding-top: 0.75rem;
+}
+
+#view_users th:first-child, #view_users td:first-child, #handle_document th:first-child, #handle_document td:first-child, #view_documents th:first-child, #view_documents td:first-child
+{
+    position:sticky;
+    left:0px;
+    background-color: white;
+    z-index: 0;
+}
+#view_users th:nth-child(2), #view_users td:nth-child(2), #view_documents th:nth-child(2), #view_documents td:nth-child(2){
+    position:sticky;
+    left:110px;
+    background-color: white;
+    border-top: 1px solid #dee2e6;
+    z-index: 0;
+}
+#view_users th:first-child, #handle_document th:first-child, #view_documents th:first-child, #view_users th:nth-child(2), #view_documents th:nth-child(2){
+    z-index: 1;
+}
+table label{
+    display: inline !important;
+}
+img.sign{
+    float: right;
+    top: -63px;
+    position: relative;
+    right: 0px;
+    width: 177px;
+}
+/* head_doc_model classes */
+div.head_doc_model{
+    font-size: 0.75em;
+}
+img.asso_logo{
+    width: 175px;
+    float: left;
+    margin-bottom: 25px;
+}
+img.pc_logo{
+    float: right;
+    width: 175px;
+}
+h1.nomeAssociazione{
+    float: left;
+    width: 700px;
+    text-align: left;
+    margin-left: 25px;
+    color: #bc2619;
+    font-weight: normal;
+    font-size: 1.5em;
+    margin-top: 15px;
+}
+
+span.nomeAssociazione_evidenziato{
+    display: block;
+    color: black;
+    font-size: 1.5em;
+}
+
+span.onlus{
+    color: black;
+}
+
+div.head_doc_model>p{
+    float:left;
+    margin-left: 25px;
+    margin-bottom: 0px;
+}
+p.sedeLegale, p.sedeOp{
+    width: 700px;
+}
+p.pec{
+    width: 600px
+}
+div.head_doc_model>hr{
+    clear: both;
+}
+@media print{
+    p.sedeLegale, p.sedeOp, h1.nomeAssociazione{
+        width: 550px;
+    }
+    p.pec{
+        width: 450px;
+    }
+}
+@media screen and (max-width: 1024px){
+    div.head_doc_model{
+        font-size: 0.5em;
+    }
+    p.sedeLegale, p.sedeOp, h1.nomeAssociazione{
+        width: 400px;
+    }
+    p.pec{
+        width: 300px;
+    }
+    img.asso_logo, img.pc_logo{
+        width: 125px;
+    }
+}

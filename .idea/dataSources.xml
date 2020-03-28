@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="yspvyrtb_gest@gianninocaria.it" uuid="e168a3b4-a0a7-43ec-8bb2-50158972e529">
+      <driver-ref>mariadb</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mariadb://gianninocaria.it:3306/yspvyrtb_gest</jdbc-url>
+    </data-source>
+  </component>
+</project>

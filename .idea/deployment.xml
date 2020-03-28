@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="Always" serverName="AGC-gest_dev">
+    <serverData>
+      <paths name="AGC-gest">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/core/config.php" />
+            <excludedPath local="true" path="$PROJECT_DIR$/../AssoGest/core/constants.php" />
+            <excludedPath path="/core/config.php" />
+            <excludedPath path="/core/constants.php" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+      <paths name="AGC-gest_dev">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/core/config.php" />
+            <excludedPath local="true" path="$PROJECT_DIR$/core/constants.php" />
+            <excludedPath path="/core/config.php" />
+            <excludedPath path="/core/constants.php" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
+</project>

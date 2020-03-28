@@ -1,0 +1,16 @@
+.DS_Store
+*.xcf
+*.jpg
+*.pdf
+*.png
+*.jpeg
+*.ini
+*.iml
+php_barcode-master/
+inc/barcode128.php
+**core/config.php
+**/core/constants.php
+**/error_log
+error_log
+AssoGest.iml
+print_bar-code.php
