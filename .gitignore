@@ -12,10 +12,11 @@
 .idea/modules.xml
 .idea/vcs.xml
 .user.ini
-**/config.php
-**/constants.php
+def/config.php
+def/constants.php
+def/checklogin.php
 AGC - Gest.iml
-core/error_log
+def/error_log
 error_log
 file/document/4e6aIJnKMHFpMzdXbq7Z.png
 file/personal_photos/7RVEa77W6qZg22jlYzQX.jpg
@@ -79,4 +80,3 @@ inc/assologo.png
 *.jpeg
 *.pdf
 *.gif
-core/checklogin.php
