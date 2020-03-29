@@ -1,6 +1,6 @@
 <?php
 require_once "inc/head-nm.php";
-require_once "core/check_session.php";
+require_once "def/check_session.php";
 ?>
 
 <!DOCTYPE html>

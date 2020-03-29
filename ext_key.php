@@ -1,6 +1,6 @@
 <?php
 require_once "inc/head-nm.php";
-require_once "core/printFunctions.php";
+require_once "def/printFunctions.php";
 ?>
 <!DOCTYPE html>
 <html lang="it">

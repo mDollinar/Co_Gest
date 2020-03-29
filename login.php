@@ -9,7 +9,7 @@ require_once "inc/head-nm.php";
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<form action="core/checklogin.php" method="post">
+<form action="def/checklogin.php" method="post">
     <div class="form-group">
         <h1><?php echo $asso_ext_name; ?>Gestionale Volontari - Login</h1>
         <?php if($multiplatform == true){?>
