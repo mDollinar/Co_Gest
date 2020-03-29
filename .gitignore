@@ -1,16 +1,6 @@
 
 .DS_Store
-.idea/$CACHE_FILE$
-.idea/compiler.xml
-.idea/dataSources.local.xml
-.idea/dataSources.xml
-.idea/dataSources/e168a3b4-a0a7-43ec-8bb2-50158972e529.xml
-.idea/dataSources/e168a3b4-a0a7-43ec-8bb2-50158972e529/storage_v2/_src_/schema/information_schema.FNRwLQ.meta
-.idea/deltaUtilsSettings.xml
-.idea/deployment.xml
-.idea/misc.xml
-.idea/modules.xml
-.idea/vcs.xml
+.idea/
 *.ini
 def/config.php
 def/constants.php
