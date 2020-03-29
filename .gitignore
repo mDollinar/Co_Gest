@@ -79,3 +79,4 @@ inc/assologo.png
 *.jpeg
 *.pdf
 *.gif
+core/checklogin.php
