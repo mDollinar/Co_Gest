@@ -1,3 +1,4 @@
+
 .DS_Store
 *.xcf
 *.jpg
@@ -20,4 +21,3 @@ inc/head_doc_model_short_data.php
 core/config.php
 core/constants.php
 .idea/
-
