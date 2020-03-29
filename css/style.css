@@ -135,3 +135,13 @@ img.sign{
 .fa{
     font-size: 18pt;
 }
+
+.fa-filter{
+    font-size: 20px;
+    margin-left: 7px;
+    padding:10px;
+}
+.fa-filter.active{
+    background-color: cornflowerblue;
+    color: white;
+}
