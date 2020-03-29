@@ -264,6 +264,7 @@ var FilterCollection = function () {
     FilterCollection.prototype.updateRowVisibility = function (filterMenus, rows, ths) {
         var showRows = rows;
         var hideRows = [];
+        var counter;
         var selectedLists = filterMenus.map(function (filterMenu) {
             return {
                 column: filterMenu.column,
@@ -274,17 +275,20 @@ var FilterCollection = function () {
                 })
             };
         });
+        counter = rows.length;
         for (var i = 0; i < rows.length; i++) {
             var tds = rows[i].children;
             for (var j = 0; j < selectedLists.length; j++) {
                 var content = tds[selectedLists[j].column].innerText.trim().replace(/ +(?= )/g, '');
                 if (selectedLists[j].selected.indexOf(content) === -1) {
                     $(rows[i]).hide();
+                    counter--;
                     break;
                 }
                 $(rows[i]).show();
             }
         }
+        $("#counter").text(counter);
     };
     FilterCollection.prototype.sort = function (column, order, table, options) {
         var flip = 1;
