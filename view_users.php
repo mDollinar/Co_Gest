@@ -1,6 +1,6 @@
 <?php
 require_once "inc/head.php";
-require_once "core/printFunctions.php";
+require_once "def/printFunctions.php";
 
 if(isset($_GET['op'])){
     $gest->getUserData(null, true);

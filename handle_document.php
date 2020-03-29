@@ -1,7 +1,7 @@
 <?php
 
 require_once "inc/head.php";
-require_once "core/printFunctions.php";
+require_once "def/printFunctions.php";
 
 ?>
 <br />

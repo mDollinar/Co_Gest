@@ -1,6 +1,6 @@
 <?php
 require_once "inc/head.php";
-require_once "core/printFunctions.php";
+require_once "def/printFunctions.php";
 ?>
     <br><h1>Gestione Modelli di Dichiarazione</h1><br>
 <?php
