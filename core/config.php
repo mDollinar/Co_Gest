@@ -23,7 +23,7 @@ $domain = "domain.it";
 $ref_mail = "info";
 
 $doc_model_headings = [
-    array("name"=>"Intestazione Completa", "file"=>"head_doc_model_full_data"),
+    array("name"=>"Intestazione Completa", "file"=>"head_doc_model_full_data")
 ];
 
 //PROCESSI ESEGUITI DA VARIABILI

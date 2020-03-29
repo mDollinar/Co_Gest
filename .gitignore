@@ -12,8 +12,8 @@
 .idea/modules.xml
 .idea/vcs.xml
 .user.ini
-core/config.php
-core/constants.php
+**/config.php
+**/constants.php
 AGC - Gest.iml
 core/error_log
 error_log
