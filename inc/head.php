@@ -84,7 +84,7 @@ require_once "def/check_session.php";
                 ?>
                 <a class="dropdown-item" href="session_simulator.php">Simulatore Utenti</a>
                 <?php } ?>
-                <a class="dropdown-item" href="core/logout.php">Log out</a>
+                <a class="dropdown-item" href="def/logout.php">Log out</a>
             </div>
         </div>
     </div>

@@ -7,7 +7,6 @@ if(isset($_GET['op'])){
 ?>
 <br />
 <h1>Anagrafica Operativi (<?php echo count($gest->results) ?>)</h1>
-<br />
 <?php
     $o = "op=true";
 }elseif (isset($_GET['dim'])){
@@ -15,7 +14,6 @@ if(isset($_GET['op'])){
     ?>
     <br />
     <h1>Anagrafica Dimessi (<?php echo count($gest->results) ?>)</h1>
-    <br />
     <?php
     $o = "dim=true";
 }elseif (isset($_GET['nop'])){
@@ -23,7 +21,6 @@ if(isset($_GET['op'])){
     ?>
     <br />
     <h1>Anagrafica NON Operativi (<?php echo count($gest->results) ?>)</h1>
-    <br />
     <?php
     $o = "nop=true";
 }else{
@@ -31,10 +28,12 @@ if(isset($_GET['op'])){
 ?>
 <br />
 <h1>Anagrafica Utenti (<?php echo count($gest->results) ?>)</h1>
-<br />
 <?php
 
 }
+?>
+    <h4 class="text-center">Utenti visualizzati (<span id="counter"><?php echo count($gest->results) ?></span>)</h4><br />
+<?php
 
 $addField = ["<a href='crud_user.php?&id=%id%&o=".$o."'>%edit%</a>"];
 
