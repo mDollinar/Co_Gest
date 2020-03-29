@@ -20,3 +20,5 @@ inc/head_doc_model_pc.php
 inc/head_doc_model_SAR.php
 inc/head_doc_model_short_data.php
 .idea
+core/config.php
+core/constants.php
