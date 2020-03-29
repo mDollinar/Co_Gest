@@ -12,7 +12,7 @@ require_once "core/printFunctions.php";
 $gest->collectDocuments_all($_SESSION['user_id']);
 
 $subFields = ['nome'];
-$addFields = ["<a href='crud_document.php?action=edit&id=%id%'>Modifica</a>", "<a href='crud_document.php?action=del&id=%id%'>Cancella</a>"];
+$addFields = ["<a href='crud_document.php?action=edit&id=%id%'>%edit%</a>", "<a href='crud_document.php?action=del&id=%id%'>%delete%</a>"];
 for($i = 0; $i<count($gest->results); $i++){
     if($gest->results[$i]['abilis'] == 0 && $gest->results[$i]['rejected'] == 0) $gest->results[$i]['stato'] = "<span class='badge badge-warning'> In Approvazione</span>";
     elseif($gest->results[$i]['rejected'] == 1) $gest->results[$i]['stato'] = "<span class='badge badge-danger'> Rigettato</span> ".$gest->results[0]['cause'];

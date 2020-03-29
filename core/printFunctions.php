@@ -1,4 +1,17 @@
 <?php
+function restring($string){
+    $str = str_replace("%edit%", '<i class="fa fa-pencil-square-o" title="Modifica"></i>', $string);
+    $str = str_replace("%view%", '<i class="fa fa-search" title="Visualizza"></i>', $str);
+    $str = str_replace("%yes%", '<i class="fa fa-check" title="Conferma"></i>', $str);
+    $str = str_replace("%no%", '<i class="fa fa-times" title="Nega"></i>', $str);
+    $str = str_replace("%add%", '<i class="fa fa-plus" title="Aggiungi"></i>', $str);
+    $str = str_replace("%preview%", '<i class="fa fa-eye" title="Anteprima"></i>', $str);
+    $str = str_replace("%delete%", '<i class="fa fa-trash-o" title="Cancella"></i>', $str);
+    $str = str_replace("%print%", '<i class="fa fa-print" title="Cancella"></i>', $str);
+    $str = str_replace("%select%", '<i class="fa fa-arrow-right" title="Cancella"></i>', $str);
+    $str = str_replace("%mail%", '<i class="fa fa-envelope" title="Cancella"></i>', $str);
+    return $str;
+}
 function printField($voice, $path = null){
     global $gest;
 
@@ -36,8 +49,9 @@ function printTable($idcss, $thead, $tbody, $path, $ordine = null, $subFields = 
                 for($z = 0; $z<count($addField); $z++){
                     $addField[$z] = str_replace("%id%", $tbody[$i]['id'], $addField[$z]);
                     $addField[$z] = str_replace("%id_document%", $tbody[$i]['documents'], $addField[$z]);
+                    $addField[$z] = restring($addField[$z]);
                     echo $addField[$z];
-                    if($z<(count($addField)-1)) echo "/";
+                    if($z<(count($addField)-1)) echo "&nbsp;&nbsp;";
                 }
                 echo "</td>";
             }
@@ -60,9 +74,10 @@ function printTable($idcss, $thead, $tbody, $path, $ordine = null, $subFields = 
                 echo "<td>";
                 for($z = 0; $z<count($addField); $z++){
                     $addField[$z] = str_replace("%id%", $tbody[$i]['id'], $addField[$z]);
+                    $addField[$z] = str_replace("%id_document%", $tbody[$i]['documents'], $addField[$z]);
+                    $addField[$z] = restring($addField[$z]);
                     echo $addField[$z];
-                    if($z<(count($addField)-1)) echo "/";
-                    $addField[$z] = str_replace($tbody[$i]['id'], "%id%", $addField[$z]);
+                    if($z<(count($addField)-1)) echo "&nbsp;&nbsp;";
                 }
                 echo "</td>";
             }

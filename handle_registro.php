@@ -10,5 +10,5 @@ for($i=0; $i<count($body); $i++){
     else $body[$i]['ingresso'] = "<span class='n'>si &egrave dimesso</span>";
     $body[$i]['user_cn'] = $body[$i]['user'][0]['cognome']." ".$body[$i]['user'][0]['nome'];
 }
-$addFields = ["<a href='crud_registro.php?action=edit&id=%id%'>Modifica Nota</a>", "<a href='crud_registro.php?action=del&id=%id%'>Cancella Nota</a>"];
+$addFields = ["<a href='crud_registro.php?action=edit&id=%id%'>%edit%</a>", "<a href='crud_registro.php?action=del&id=%id%'>%delete%</a>"];
 printTable("registro", ['Data', 'Evento', 'Socio', 'Azioni'], $body, "file", ['giorno', 'ingresso', 'user_cn'], null, $addFields);

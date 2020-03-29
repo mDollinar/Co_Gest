@@ -8,7 +8,7 @@ if(!isset($id_model)) {
     <?php
     $gest->reset();
     $gest->getDoc_model();
-    $addFields = ['<a href=print_doc_models.php?action=user&id_model=%id%>Seleziona</a>'];
+    $addFields = ['<a href=print_doc_models.php?action=user&id_model=%id%>%select%</a>'];
     printTable("print_doc_models_choose_model", ['Titolo', 'Scegli il Documento'], $gest->results, "file", ['titolo'], null, $addFields);
 }elseif(isset($id_model) && !isset($id_user)){
     ?>
@@ -16,8 +16,8 @@ if(!isset($id_model)) {
     <?php
     $gest->reset();
     $gest->getUserData();
-    $addFields = ["<a href=print_doc_models.php?action=user&id_model=$id_model&id_user=%id%>Stampa</a>",
-        "<a href=print_doc_models.php?action=mail&id_model=$id_model&id_user=%id%>Invia via mail</a>"];
+    $addFields = ["<a href=print_doc_models.php?action=user&id_model=$id_model&id_user=%id%>%print%</a>",
+        "<a href=print_doc_models.php?action=mail&id_model=$id_model&id_user=%id%>%mail%</a>"];
     printTable("print_doc_models_choose_user", ['Cognome', 'Nome', 'Stampa'], $gest->results, "file", ['cognome', 'nome'], null, $addFields);
 }elseif(isset($id_model) && isset($id_user)){
     if($action == "mail") {

@@ -29,7 +29,7 @@ if($action == "y"){
     <br />
     <?php
     $gest->getPendingUsers();
-    $addFields = ["<a href='check_users.php?action=y&id=%id%'>Conferma</a>", "<a href='crud_document.php?action=n&id=%id%'>Rifiuta</a>"];
+    $addFields = ["<a href='check_users.php?action=y&id=%id%'>%yes%</a>", "<a href='crud_document.php?action=n&id=%id%'>%no%</a>"];
 
     printTable("check_users", ['Cognome', 'Nome', 'Mail', 'Azioni'], $gest->results, null, ['cognome', 'nome', 'mail'], null, $addFields);
 }

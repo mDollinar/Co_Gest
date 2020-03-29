@@ -58,7 +58,7 @@ if($action == "edit") {
     <?php
     $gest->collectDocuments();
     $thead = ["Nome Documento", "Aggiungi"];
-    printTable("crud_document", $thead, $gest->results, "file/document", ['nome'], null, ["<a href='crud_document.php?action=add&id_type=%id%&v=".$_GET['v']."'>Aggiungi</a>"]);
+    printTable("crud_document", $thead, $gest->results, "file/document", ['nome'], null, ["<a href='crud_document.php?action=add&id_type=%id%&v=".$_GET['v']."'>%add%</a>"]);
 
 }elseif ($action == "add"){
     extract($_GET)

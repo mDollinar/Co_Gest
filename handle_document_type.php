@@ -16,6 +16,6 @@ printTable(
         null,
         ['nome', 'scadenza', 'numero', 'required', 'require_attach_front', 'require_attach_back'],
     null,
-    ["<a href='crud_document_type.php?action=edit&id=%id%'>Modifica</a>", "<a href='crud_document_type.php?action=del&id=%id%'>Cancella</a>"]
+    ["<a href='crud_document_type.php?action=edit&id=%id%'>%edit%</a>", "<a href='crud_document_type.php?action=del&id=%id%'>%delete%</a>"]
 );
 ?>

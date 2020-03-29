@@ -43,7 +43,7 @@ if($action=="eval"){
     $gest->subSelectOnField("cognome", "cognome", "users", "id", "id_user");
     $gest->subSelectOnField("nome", "nome", "users", "id", "id_user");
 
-    $addFields = ["<a href='check_document.php?action=eval&id=%id%'>Visualizza</a>"];
+    $addFields = ["<a href='check_document.php?action=eval&id=%id%'>%view%</a>"];
 
     printTable("check_document", $thead, $gest->results, "file/document", ['document', 'cognome', 'nome'], ['document', 'cognome', 'nome'], $addFields);
 }elseif($action == "approve") {

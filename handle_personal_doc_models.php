@@ -15,7 +15,7 @@ if(!isset($id_model)) {
     } ?>
     <br><h1>Consulta le tue Dichiarazioni</h1><br>
     <?php
-    $addFields = ['<a href=handle_personal_doc_models.php?id_model=%id%>Stampa</a>'];
+    $addFields = ['<a href=handle_personal_doc_models.php?id_model=%id%>%print%</a>'];
     printTable("print_doc_models_choose_model", ['Titolo', 'Scegli il Documento'], $gest->results, "file", ['titolo'], null, $addFields);
 }else{
     $gest->reset();

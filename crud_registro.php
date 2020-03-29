@@ -8,7 +8,7 @@ if($_GET['action']== "choose"){
     <br><h1>Seleziona il Socio</h1><br>
 <?php
     $gest->select(true, "id, cognome, nome", "users", null, "cognome, nome");
-    $addFields = ["<a href='crud_registro.php?action=add&id=%id%'>Aggiungi Nota</a>"];
+    $addFields = ["<a href='crud_registro.php?action=add&id=%id%'>%add%</a>"];
     printTable("crud_registro", ['Cognome', 'Nome', 'Azioni'], $gest->results, "file", ['cognome','nome'], null, $addFields);
 }elseif ($action == "add"){
     echo "<br><h1>Inserisci le informazioni</h1><br>";
