@@ -71,7 +71,7 @@ var FilterMenu = function () {
         input.setAttribute('data-column', self.column.toString());
         input.setAttribute('data-index', self.index.toString());
         dropdownFilterItem.appendChild(input);
-        dropdownFilterItem.innerHTML = dropdownFilterItem.innerHTML.trim() + " <label for='"+value+"'>" + value+"</label>";
+        dropdownFilterItem.innerHTML = dropdownFilterItem.innerHTML.trim() + "  "+ value;
         return dropdownFilterItem;
     };
     FilterMenu.prototype.dropdownFilterItemSelectAll = function () {
@@ -87,7 +87,7 @@ var FilterMenu = function () {
         input.setAttribute('data-column', this.column.toString());
         input.setAttribute('data-index', this.index.toString());
         dropdownFilterItemSelectAll.appendChild(input);
-        dropdownFilterItemSelectAll.innerHTML = dropdownFilterItemSelectAll.innerHTML + " <label for='"+value+"'>" + value+"</label>";
+        dropdownFilterItemSelectAll.innerHTML = dropdownFilterItemSelectAll.innerHTML + "  "+value;
         return dropdownFilterItemSelectAll;
     };
     FilterMenu.prototype.dropdownFilterSearch = function () {
@@ -163,10 +163,7 @@ var FilterMenu = function () {
         var dropdownFilterDropdown = document.createElement('div');
         dropdownFilterDropdown.className = 'dropdown-filter-dropdown';
         var arrow = document.createElement('span');
-        arrow.className = 'glyphicon glyphicon-arrow-down dropdown-filter-icon';
-        var icon = document.createElement('i');
-        icon.className = 'arrow-down';
-        arrow.appendChild(icon);
+        arrow.className = 'fa fa-filter';
         dropdownFilterDropdown.appendChild(arrow);
         dropdownFilterDropdown.appendChild(this.dropdownFilterContent());
         if ($(this.th).hasClass('no-sort')) {
@@ -214,6 +211,8 @@ var FilterCollection = function () {
             var value = $(this).val();
             filterMenus[index].updateSelectAll();
             updateRowVisibility(filterMenus, rows, ths);
+            if($(this).parent().parent().find(".select-all").prop("checked")) $(this).parent().parent().parent().parent().find(".fa-filter").removeClass("active");
+            else $(this).parent().parent().parent().parent().find(".fa-filter").addClass("active");
         });
     };
     FilterCollection.prototype.bindSelectAllCheckboxes = function () {
@@ -226,6 +225,8 @@ var FilterCollection = function () {
             var value = this.checked;
             filterMenus[index].selectAllUpdate(value);
             updateRowVisibility(filterMenus, rows, ths);
+            if($(this).prop("checked")) $(this).parent().parent().parent().parent().find(".fa-filter").removeClass("active");
+            else $(this).parent().parent().parent().parent().find(".fa-filter").addClass("active");
         });
     };
     FilterCollection.prototype.bindSort = function () {
@@ -255,6 +256,9 @@ var FilterCollection = function () {
             var value = $input.val();
             filterMenus[index].searchToggle(value);
             updateRowVisibility(filterMenus, rows, ths);
+            if($(this).parent().find(".select-all").prop("checked")) $(this).parent().parent().parent().find(".fa-filter").removeClass("active");
+            else $(this).parent().parent().parent().find(".fa-filter").addClass("active");
+
         });
     };
     FilterCollection.prototype.updateRowVisibility = function (filterMenus, rows, ths) {
