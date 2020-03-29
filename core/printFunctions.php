@@ -149,15 +149,16 @@ function printAlert($type, $message, $buttons = null, $class = null){
     }
     echo "</p>";
 }
-function printDoc_model($save = false, $titolo, $fixedDate = true, $date = null, $t1, $t2, $t3, $particella, $auto_userData, $dataField, $access_level, $user_id, $pres_sign){
-    global $gest, $citta_sede, $president_sign, $president_sign_pic, $header_doc_model;
+function printDoc_model($save = false, $titolo, $fixedDate = true, $date = null, $t1, $t2, $t3, $particella, $auto_userData, $dataField, $access_level, $user_id, $pres_sign, $header_doc_model){
+    global $gest, $citta_sede, $president_sign, $president_sign_pic;
     $gest->reset();
     $gest->getUserData($user_id);
     echo"
+    <link rel='stylesheet' href='css/head_doc_model.css' type='text/css'>
     <div class='container'>
         <br><h2 class='d-print-none text-center'>Titolo: $titolo</h2><br>";
         if($save == 1) echo "<h1 class='d-print-none'>ANTEPRIMA DELLA DICHIARAZIONE</h1><br>";
-        require_once $header_doc_model;
+        require_once "inc/".$header_doc_model.".php";
         echo "<br>$t1
         <h3 class='text-center'>".mb_strtoupper($particella)."</h3><br>
         $t2";
@@ -203,7 +204,8 @@ function printDoc_model($save = false, $titolo, $fixedDate = true, $date = null,
             array("name"=>"fixed_date", "value"=>$fixedDate),
             array("name"=>"date", "value"=>$date),
             array("name"=>"access_level", "value"=>$access_level),
-            array("name"=>"pres_sign", "value"=>$pres_sign)
+            array("name"=>"pres_sign", "value"=>$pres_sign),
+            array("name"=>"header_doc_model", "value"=>$header_doc_model)
         ];
         $buttons=[array("value"=>"Salva", "action"=>"submit"), array("value"=>"Torna Indietro", "action"=>"link", "url"=>"javascript:window.close();", "class"=>"btn-danger")];
         $action = "crud_doc_models.php?action=save";

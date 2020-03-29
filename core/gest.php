@@ -594,7 +594,7 @@ class Gest extends MultiFunction {
     }
 
     //modelli di dichiarazione
-    public function addDoc_model($nome, $t1, $t2, $t3, $particella, $fixed_date, $giorno, $auto_user_data, $data_field, $access_level, $pres_sign){
+    public function addDoc_model($nome, $t1, $t2, $t3, $particella, $fixed_date, $giorno, $auto_user_data, $data_field, $access_level, $pres_sign, $header_doc_model){
         $nome = $this->setText($nome);
         $t1 = $this->setText($t1);
         $t2 = $this->setText($t2);
@@ -602,8 +602,8 @@ class Gest extends MultiFunction {
         $particella = $this->setText($particella);
         $data_field = $this->setText($data_field);
         $v = [
-            "titolo, t1, t2, t3, particella, auto_user_data, data_field, fixed_date, giorno, access_level, pres_sign",
-            "'$nome', '$t1', '$t2', '$t3', '$particella', $auto_user_data, '$data_field', $fixed_date, '$giorno', $access_level, $pres_sign"
+            "titolo, t1, t2, t3, particella, auto_user_data, data_field, fixed_date, giorno, access_level, pres_sign, header_doc_model",
+            "'$nome', '$t1', '$t2', '$t3', '$particella', $auto_user_data, '$data_field', $fixed_date, '$giorno', $access_level, $pres_sign, '$header_doc_model'"
         ];
         $this->insert("doc_models", $v);
         $this->addLog("aggiunto un modello dal titolo ".$nome, true);
@@ -619,7 +619,7 @@ class Gest extends MultiFunction {
             $this->select(true, "id, titolo, fixed_date, auto_user_data", "doc_models", null, "titolo");
         }
     }
-    public function updateDoc_model($nome, $t1, $t2, $t3, $particella, $fixed_date, $giorno, $auto_user_data, $data_field, $access_level, $pres_sign){
+    public function updateDoc_model($nome, $t1, $t2, $t3, $particella, $fixed_date, $giorno, $auto_user_data, $data_field, $access_level, $pres_sign, $header_doc_model){
         $id = $_GET['id'];
         $nome = $this->setText($nome);
         $t1 = $this->setText($t1);
@@ -628,7 +628,7 @@ class Gest extends MultiFunction {
         $particella = $this->setText($particella);
         $data_field = $this->setText($data_field);
         $c = [
-            "titolo = '$nome'", "t1 = '$t1'", "t2 = '$t2'", "t3 = '$t3'", "particella = '$particella'", "auto_user_data = $auto_user_data", "data_field = '$data_field'", "fixed_date = $fixed_date", "giorno = '$giorno'", "access_level = $access_level", "pres_sign = $pres_sign"
+            "titolo = '$nome'", "t1 = '$t1'", "t2 = '$t2'", "t3 = '$t3'", "particella = '$particella'", "auto_user_data = $auto_user_data", "data_field = '$data_field'", "fixed_date = $fixed_date", "giorno = '$giorno'", "access_level = $access_level", "pres_sign = $pres_sign", "header_doc_model = '$header_doc_model'"
         ];
         $this->update("doc_models", $c, "id = $id");
         $this->addLog("aggiornato il modello con id = ".$id, true);

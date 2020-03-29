@@ -21,6 +21,6 @@ if(!isset($id_model)) {
     $gest->reset();
     $gest->getDoc_model($id_model);
     extract($gest->results[0]);
-    printDoc_model(0, $titolo, $fixed_date, $giorno, $t1, $t2, $t3, $particella, $auto_user_data, $data_field, null, $_SESSION['user_id'], $pres_sign);
+    printDoc_model(0, $titolo, $fixed_date, $giorno, $t1, $t2, $t3, $particella, $auto_user_data, $data_field, null, $_SESSION['user_id'], $pres_sign, $header_doc_model);
     $gest->addLog("visualizzato il modello dal titolo ".$titolo." [personale]", true);
 }

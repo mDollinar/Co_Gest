@@ -1,0 +1,98 @@
+/* head_doc_model classes */
+div.head_doc_model{
+    font-size: 0.75em;
+}
+img.asso_logo{
+    width: 175px;
+    float: left;
+    margin-bottom: 25px;
+}
+img.pc_logo{
+    float: right;
+    width: 175px;
+}
+h1.nomeAssociazione{
+    float: left;
+    width: 700px;
+    text-align: left;
+    margin-left: 25px;
+    color: #bc2619;
+    font-weight: normal;
+    font-size: 1.5em;
+    margin-top: 15px;
+}
+
+span.nomeAssociazione_evidenziato{
+    display: block;
+    color: black;
+    font-size: 1.5em;
+}
+
+span.onlus{
+    color: black;
+}
+
+div.head_doc_model>p{
+    float:left;
+    margin-left: 25px;
+    margin-bottom: 0px;
+}
+p.sedeLegale, p.sedeOp{
+    width: 700px;
+}
+p.pec{
+    width: 600px
+}
+div.head_doc_model>hr{
+    clear: both;
+}
+.sar h1.nomeAssociazione {
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    font-size: 2.7em;
+}
+
+.sar .nomeAssociazione_evidenziato{
+    font-weight: normal;
+    font-size: 1em;
+}
+
+.short-data h1.nomeAssociazione {
+    color: black;
+    font-weight: bold;
+    font-size: 1.5em;
+    text-transform: uppercase;
+}
+
+.short-data .nomeAssociazione_evidenziato{
+    font-weight: normal;
+    font-size: 1em;
+    text-transform: none;
+}
+
+.short-data img.asso_logo{
+    width: 100px;
+}
+@media print{
+    p.sedeLegale, p.sedeOp, h1.nomeAssociazione{
+        width: 550px;
+    }
+    p.pec{
+        width: 450px;
+    }
+}
+@media screen and (max-width: 1024px){
+    div.head_doc_model{
+        font-size: 0.5em;
+    }
+    p.sedeLegale, p.sedeOp, h1.nomeAssociazione{
+        width: 400px;
+    }
+    p.pec{
+        width: 300px;
+    }
+    img.asso_logo, img.pc_logo{
+        width: 125px;
+    }
+}

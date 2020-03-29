@@ -25,6 +25,17 @@ if($action == "new"){
                     <option value="1">Presidente </option>
                     <option value="0">Utente </option></select>
             </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend"><span class="input-group-text">Quale Intestazione visualizzer&agrave;?</span></div>
+                <select name="header_doc_model" id="header_doc_model" class="custom-select" required>
+                    <option value="">Seleziona...</option>
+                    <?php
+                    for($i = 0; $i<count($doc_model_headings); $i++){
+                        echo "<option value='".$doc_model_headings[$i]['file']."'>".$doc_model_headings[$i]['name']."</option>";
+                    }
+                    ?>>
+                </select>
+            </div>
             <div class='input-group mb-3'>
                 <div class='input-group-prepend'>
                     <span class='input-group-text'>Titolo del Modello</span>
@@ -142,10 +153,10 @@ if($action == "new"){
     }
     if($auto_user_data == 1) $data_field = null;
     if($fixed_date == 0) $date = null;
-    printDoc_model($save, $titolo, $fixed_date, $giorno, $t1, $t2, $t3, $particella, $auto_user_data, $data_field, $access_level, $_SESSION['user_id'], $pres_sign);
+    printDoc_model($save, $titolo, $fixed_date, $giorno, $t1, $t2, $t3, $particella, $auto_user_data, $data_field, $access_level, $_SESSION['user_id'], $pres_sign, $header_doc_model);
 }elseif($action == "save"){
     extract($_POST);
-    $gest->addDoc_model($titolo, $t1, $t2, $t3, $particella, $fixed_date, $date, $auto_user_data, $data_field, $access_level, $pres_sign);
+    $gest->addDoc_model($titolo, $t1, $t2, $t3, $particella, $fixed_date, $date, $auto_user_data, $data_field, $access_level, $pres_sign, $header_doc_model);
     $buttons = [array("url"=>"handle_doc_models.php", "class"=>"info", "value"=>"Torna Indietro")];
     printAlert("success", "Complimenti, il Modello di Dichiarazione &egrave; stato caricato con successo!", $buttons);
 }elseif($action == "edit"){
@@ -172,6 +183,19 @@ if($action == "new"){
                     <option value="">Seleziona...</option>
                     <option value="1" <?php if($pres_sign == 1) echo "selected" ?>>Presidente </option>
                     <option value="0" <?php if($pres_sign == 0) echo "selected" ?>>Utente </option></select>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend"><span class="input-group-text">Quale Intestazione visualizzer&agrave;?</span></div>
+                <select name="header_doc_model" id="header_doc_model" class="custom-select" required>
+                    <option value="">Seleziona...</option>
+                    <?php
+                    for($i = 0; $i<count($doc_model_headings); $i++){
+                        echo "<option value='".$doc_model_headings[$i]['file']."'";
+                        if($header_doc_model == $doc_model_headings[$i]['file']) echo " selected";
+                        echo ">".$doc_model_headings[$i]['name']."</option>";
+                    }
+                    ?>>
+                </select>
             </div>
             <div class='input-group mb-3'>
                 <div class='input-group-prepend'>
@@ -285,7 +309,7 @@ if($action == "new"){
     }
 }elseif($action == "update") {
     extract($_POST);
-    $gest->updateDoc_model($titolo, $t1, $t2, $t3, $particella, $fixed_date, $date, $auto_user_data, $data_field, $access_level, $pres_sign);
+    $gest->updateDoc_model($titolo, $t1, $t2, $t3, $particella, $fixed_date, $date, $auto_user_data, $data_field, $access_level, $pres_sign, $header_doc_model);
     $buttons = [array("url" => "handle_doc_models.php", "class" => "info", "value" => "Torna Indietro")];
     printAlert("success", "Complimenti, il Modello di Dichiarazione &egrave; stato aggiornato con successo!", $buttons);
 }
