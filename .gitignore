@@ -73,3 +73,9 @@ php_barcode-master/barcode128.php
 php_barcode-master/index.php
 print_bar-code.php
 inc/assologo.png
+*.xcf
+*.png
+*.jpg
+*.jpeg
+*.pdf
+*.gif
