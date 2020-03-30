@@ -1,6 +1,6 @@
 <?php
 require_once "inc/head.php";
-require_once "def/printFunctions.php";
+require_once "crux/printFunctions.php";
 ?>
     <br><h1>Registro Iscrizioni</h1><br>
 <?php

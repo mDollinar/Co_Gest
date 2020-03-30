@@ -1,5 +1,5 @@
 <?php
-require_once "def/printFunctions.php";
+require_once "crux/printFunctions.php";
 require_once "inc/head.php";
 extract($_GET);
 ?>

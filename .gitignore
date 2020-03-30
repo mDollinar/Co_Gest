@@ -2,11 +2,11 @@
 .DS_Store
 .idea/
 *.ini
-def/config.php
-def/constants.php
-def/checklogin.php
+crux/config.php
+crux/constants.php
+crux/checklogin.php
 AGC - Gest.iml
-def/error_log
+crux/error_log
 error_log
 inc/sign.png
 inc/sar.xcf
