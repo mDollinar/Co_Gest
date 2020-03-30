@@ -1,5 +1,6 @@
 <?php
-function restring($string){
+function restring($string, $idV = null, $docV = null){
+    $str = "";
     $str = str_replace("%edit%", '<i class="fa fa-pencil-square-o" title="Modifica"></i>', $string);
     $str = str_replace("%view%", '<i class="fa fa-search" title="Visualizza"></i>', $str);
     $str = str_replace("%yes%", '<i class="fa fa-check" title="Conferma"></i>', $str);
@@ -7,9 +8,11 @@ function restring($string){
     $str = str_replace("%add%", '<i class="fa fa-plus" title="Aggiungi"></i>', $str);
     $str = str_replace("%preview%", '<i class="fa fa-eye" title="Anteprima"></i>', $str);
     $str = str_replace("%delete%", '<i class="fa fa-trash-o" title="Cancella"></i>', $str);
-    $str = str_replace("%print%", '<i class="fa fa-print" title="Cancella"></i>', $str);
-    $str = str_replace("%select%", '<i class="fa fa-arrow-right" title="Cancella"></i>', $str);
-    $str = str_replace("%mail%", '<i class="fa fa-envelope" title="Cancella"></i>', $str);
+    $str = str_replace("%print%", '<i class="fa fa-print" title="Stampa"></i>', $str);
+    $str = str_replace("%select%", '<i class="fa fa-arrow-right" title="Seleziona"></i>', $str);
+    $str = str_replace("%mail%", '<i class="fa fa-envelope" title="Invia mail"></i>', $str);
+    if(isset($idV)) $str = str_replace("%id%", $idV, $str);
+    if(isset($docV)) $str = str_replace("%id_document%", $docV, $str);
     return $str;
 }
 function printField($voice, $path = null){
@@ -47,10 +50,7 @@ function printTable($idcss, $thead, $tbody, $path, $ordine = null, $subFields = 
             if(!is_null($addField)){
                 echo "<td>";
                 for($z = 0; $z<count($addField); $z++){
-                    $addField[$z] = str_replace("%id%", $tbody[$i]['id'], $addField[$z]);
-                    $addField[$z] = str_replace("%id_document%", $tbody[$i]['documents'], $addField[$z]);
-                    $addField[$z] = restring($addField[$z]);
-                    echo $addField[$z];
+                    echo restring($addField[$z], $tbody[$i]['id'], $tbody[$i]['documents']);;
                     if($z<(count($addField)-1)) echo "&nbsp;&nbsp;";
                 }
                 echo "</td>";
@@ -73,10 +73,7 @@ function printTable($idcss, $thead, $tbody, $path, $ordine = null, $subFields = 
             if(!is_null($addField)){
                 echo "<td>";
                 for($z = 0; $z<count($addField); $z++){
-                    $addField[$z] = str_replace("%id%", $tbody[$i]['id'], $addField[$z]);
-                    $addField[$z] = str_replace("%id_document%", $tbody[$i]['documents'], $addField[$z]);
-                    $addField[$z] = restring($addField[$z]);
-                    echo $addField[$z];
+                    echo restring($addField[$z], $tbody[$i]['id'], $tbody[$i]['documents']);;
                     if($z<(count($addField)-1)) echo "&nbsp;&nbsp;";
                 }
                 echo "</td>";
