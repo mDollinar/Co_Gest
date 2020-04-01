@@ -66,7 +66,7 @@ class Gest extends MultiFunction {
             extract($this->results[1]);
             $this->getDoc_model($id_model);
             extract($this->results[2]);
-            printDoc_model(false, $titolo, $fixed_date, $giorno, $t1, $t2, $t3, $particella, $auto_user_data, $data_field, 0, $id_user, $pres_sign);
+            printDoc_model(false, $titolo, $fixed_date, $giorno, $t1, $t2, $t3, $particella, $auto_user_data, $data_field, 0, $id_user, $pres_sign, $header_doc_model);
             echo"
             <script>
                 $(document).ready(function(){
