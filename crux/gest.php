@@ -80,6 +80,32 @@ class Gest extends MultiFunction {
             echo "<p>Spiacenti... link scaduto...</p>";
         }
     }
+    public function getKeys($old = false){
+        if(!$old) {
+            $this->reset();
+            $this->select(true, "*", "key_strings", null, "gen_date DESC");
+        }else{
+            $this->reset();
+            $this->select(true, "*", "bu_key_strings", null, "gen_date DESC");
+        }
+        for($i = 0; $i<count($this->results); $i++){
+            if($this->results[$i]['content'] == "doc_models") $this->results[$i]['content'] = "Dichiarazione Firmata";
+        }
+    }
+    public function getKeys_doc_models($old = false){
+        if(!$old) {
+            $this->reset();
+            $this->select(true, "*", "keys_doc_models", null, "gen_date DESC");
+        }else{
+            $this->reset();
+            $this->select(true, "*", "bu_keys_doc_models", null, "gen_date DESC");
+        }
+        $this->subSelectOnField("titolo", "titolo", "doc_models", "id", "id_model");
+        $this->subSelectOnField("user", "nome, cognome", "users", "id", "id_user");
+        for($i = 0; $i<count($this->results); $i++){
+            $this->results[$i]['utente'] = $this->results[$i]['user'][0]['cognome']." ".$this->results[$i]['user'][0]['nome'];
+        }
+    }
 
     //Registrazione
     public function checkRegister($mail, $user){

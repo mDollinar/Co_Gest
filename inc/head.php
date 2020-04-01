@@ -71,7 +71,16 @@ require_once "crux/check_session.php";
                     <?php if($gest->checkSuperUser()) echo '
                     <a class="dropdown-item mobile_hide" href="crud_doc_models.php?action=new">Aggiungi un modello</a>
                     <a class="dropdown-item" href="handle_doc_models.php">Gestisci i modelli</a>
-                    <a class="dropdown-item" href="print_doc_models.php">Stampa/Invia una dichiarazione</a>
+                    <a class="dropdown-item" href="print_doc_models.php">Stampa/Invia una dichiarazione</a>';?>
+                  </div>
+            </li>
+                    
+            <?php if($gest->checkSuperUser()) echo '
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="anag" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mail</a>
+                <div class="dropdown-menu" aria-labelledby="anag">
+                    <a class="dropdown-item" href="view_keys.php">Tutte le mail</a>
+                    <a class="dropdown-item" href="view_doc_model_keys.php">Dichiarazioni via mail</a>
                   </div>
             </li>';?>
         </ul>

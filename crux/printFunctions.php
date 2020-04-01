@@ -1,5 +1,5 @@
 <?php
-function restring($string, $idV = null, $docV = null){
+function restring($string, $idV = null, $docV = null, $keyV = null){
     $str = "";
     $str = str_replace("%edit%", '<i class="fa fa-pencil-square-o mobile_hide" title="Modifica"></i>', $string);
     $str = str_replace("%view%", '<i class="fa fa-search" title="Visualizza"></i>', $str);
@@ -13,12 +13,16 @@ function restring($string, $idV = null, $docV = null){
     $str = str_replace("%mail%", '<i class="fa fa-envelope" title="Invia mail"></i>', $str);
     if(isset($idV)) $str = str_replace("%id%", $idV, $str);
     if(isset($docV)) $str = str_replace("%id_document%", $docV, $str);
+    if(isset($keyV)) $str = str_replace("%key%", $keyV, $str);
     return $str;
 }
 function printField($voice, $path = null){
     global $gest;
 
-    if(strtotime($voice)) return date("d/m/Y", strtotime($voice));
+    if(strtotime($voice)){
+        if(strlen($voice) == 10) return date("d/m/Y", strtotime($voice));
+        return date("d/m/Y H:i:s", strtotime($voice));
+    }
     else if ($path != null && is_file($path.$voice)){
         $string = "<a href='".$path.$voice."' target='_new'>Consulta</a>";
         if($gest->checkSuperUser()) $string .= "/<a href='".$path.$voice."' target='_new' download>Scarica</a>";
@@ -50,7 +54,7 @@ function printTable($idcss, $thead, $tbody, $path, $ordine = null, $subFields = 
             if(!is_null($addField)){
                 echo "<td>";
                 for($z = 0; $z<count($addField); $z++){
-                    echo restring($addField[$z], $tbody[$i]['id'], $tbody[$i]['documents']);;
+                    echo restring($addField[$z], $tbody[$i]['id'], $tbody[$i]['documents'], $tbody[$i]['key_string']);
                     if($z<(count($addField)-1)) echo "&nbsp;&nbsp;";
                 }
                 echo "</td>";
@@ -73,7 +77,7 @@ function printTable($idcss, $thead, $tbody, $path, $ordine = null, $subFields = 
             if(!is_null($addField)){
                 echo "<td>";
                 for($z = 0; $z<count($addField); $z++){
-                    echo restring($addField[$z], $tbody[$i]['id'], $tbody[$i]['documents']);;
+                    echo restring($addField[$z], $tbody[$i]['id'], $tbody[$i]['documents'], $tbody[$i]['key_string']);
                     if($z<(count($addField)-1)) echo "&nbsp;&nbsp;";
                 }
                 echo "</td>";
@@ -81,8 +85,7 @@ function printTable($idcss, $thead, $tbody, $path, $ordine = null, $subFields = 
             echo "</tr>";
         }
     }
-    echo "</table><script>$('table').excelTableFilter();
-</script>";
+    echo "</table><script>$('table').excelTableFilter();</script>";
 }
 
 function printForm($edit, $action, $method, $fields = null, $hidden = null, $buttons = null){
