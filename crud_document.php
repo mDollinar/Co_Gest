@@ -18,7 +18,7 @@ if($action == "edit") {
     if ($gest->results[0]['data'][0]['numero']) array_push($fields, array("name" => "numero", "type" => "text", "label" => "Numero", "required" => true, "value" => $gest->results[0]['numero']));
 
     if ($gest->results[0]['data'][0]['require_attach_front']) {
-        array_push($fields, array("name" => "attach_front", "type" => "file", "label" => "Allegato Fronte"));
+        array_push($fields, array("name" => "attach_front", "type" => "file", "label" => "Allegato Fronte", "mobile_hide" => true));
         if (is_null($gest->results[0]['attach_front'])) {
             if($gest->checkSuperUser() == false) $fields[count($fields) - 1]['required'] = true;
         }
@@ -29,7 +29,7 @@ if($action == "edit") {
     }
 
     if ($gest->results[0]['data'][0]['require_attach_back']) {
-        array_push($fields, array("name" => "attach_back", "type" => "file", "label" => "Allegato Retro"));
+        array_push($fields, array("name" => "attach_back", "type" => "file", "label" => "Allegato Retro", "mobile_hide" => true));
         if (is_null($gest->results[0]['attach_back'])){
             if($gest->checkSuperUser() == false) $fields[count($fields) - 1]['required'] = true;
         }
@@ -39,7 +39,7 @@ if($action == "edit") {
         }
     }
     if($gest->checkSuperUser()){
-        array_push($fields, array("name" => "attach_master", "type" => "file", "label" => "Allegato Master"));
+        array_push($fields, array("name" => "attach_master", "type" => "file", "label" => "Allegato Master", "mobile_hide" => true));
         if (isset($gest->results[0]['attach_master'])){
             $fields[count($fields) - 1]['linkValue'] = "file/document/" . $gest->results[0]['attach_master'];
             $fields[count($fields) - 1]['linkText'] = "Consulta l&apos;allegato Master caricato in precedenza ->";
@@ -84,15 +84,15 @@ if($action == "edit") {
     if ($gest->results[0]['numero']) array_push($fields, array("name" => "numero", "type" => "text", "label" => "Numero", "required" => true));
 
     if ($gest->results[0]['require_attach_front']) {
-        array_push($fields, array("name" => "attach_front", "type" => "file", "label" => "Allegato Fronte"));
+        array_push($fields, array("name" => "attach_front", "type" => "file", "label" => "Allegato Fronte", "mobile_hide" => true));
         if($gest->checkSuperUser() == false) $fields[count($fields) - 1]['required'] = true;
     }
 
     if ($gest->results[0]['require_attach_back']) {
-        array_push($fields, array("name" => "attach_back", "type" => "file", "label" => "Allegato Retro"));
+        array_push($fields, array("name" => "attach_back", "type" => "file", "label" => "Allegato Retro", "mobile_hide" => true));
         if($gest->checkSuperUser() == false) $fields[count($fields) - 1]['required'] = true;
     }
-    if($v == "mas") array_push($fields, array("name" => "attach_master", "type" => "file", "label" => "Allegato Master"));
+    if($v == "mas") array_push($fields, array("name" => "attach_master", "type" => "file", "label" => "Allegato Master", "mobile_hide" => true));
 
     printForm(false, "crud_document.php?action=save&v=".$_GET['v'], "post", $fields, $hidden, $buttons);
 

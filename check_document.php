@@ -23,7 +23,7 @@ if($action=="eval"){
         echo printField($gest->results[0]['attach_back'], "file/document/")."</li>";
     }
     echo "</ul>";
-    array_push($fields, array("type"=>"file", "name"=>"attach_master", "label"=>"Allegato Master"));
+    array_push($fields, array("type"=>"file", "name"=>"attach_master", "label"=>"Allegato Master", "mobile_hide" => true));
     if($gest->results[0]['attach_master'] != null) {
         $fields[count($fields) - 1]['linkValue'] = "file/document/".$gest->results[0]['attach_master'];
         $fields[count($fields) - 1]['linkText'] = "Consulta l&apos;attuale allegato finale ->";

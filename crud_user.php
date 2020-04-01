@@ -32,7 +32,7 @@ if($action != "save") {
 
     array_push($fields, array("type" => "text", "name" => "mail", "label" => "Indirizzo Mail", "value" => $gest->results[0]['mail'], "ph"=>"mario.rossi@mail.it"));
     array_push($fields, array("type" => "password", "name" => "pwd", "label" => "Password", "value" => $gest->results[0]['pwd']));
-    array_push($fields, array("type" => "file", "name" => "photo", "label" => "Foto Tessera"));
+    array_push($fields, array("type" => "file", "name" => "photo", "label" => "Foto Tessera", "mobile_hide" => true));
     if (is_null($gest->results[0]['photo'])){
         if(!$gest->checkSuperUser()) $fields[count($fields) - 1]['required'] = true;
     }

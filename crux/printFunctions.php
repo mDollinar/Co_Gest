@@ -1,7 +1,7 @@
 <?php
 function restring($string, $idV = null, $docV = null){
     $str = "";
-    $str = str_replace("%edit%", '<i class="fa fa-pencil-square-o" title="Modifica"></i>', $string);
+    $str = str_replace("%edit%", '<i class="fa fa-pencil-square-o mobile_hide" title="Modifica"></i>', $string);
     $str = str_replace("%view%", '<i class="fa fa-search" title="Visualizza"></i>', $str);
     $str = str_replace("%yes%", '<i class="fa fa-check" title="Conferma"></i>', $str);
     $str = str_replace("%no%", '<i class="fa fa-times" title="Nega"></i>', $str);
@@ -94,7 +94,9 @@ function printForm($edit, $action, $method, $fields = null, $hidden = null, $but
     }
     if(!is_null($fields)) {
         for ($i = 0; $i < count($fields); $i++) {
-            echo "<div class='input-group mb-3'>";
+            echo "<div class='input-group mb-3";
+            if($fields[$i]['mobile_hide']) echo " mobile_hide";
+            echo "'>";
             echo "<div class='input-group-prepend'><span class='input-group-text'>" . $fields[$i]['label'] . ": </span></div>";
             if ($fields[$i]['type'] == "select") {
                 echo "<select name='" . $fields[$i]['name'] . "' class='custom-select'>";

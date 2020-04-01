@@ -31,7 +31,7 @@ require_once "crux/check_session.php";
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="documents" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Documenti Identificativi</a>
                 <div class="dropdown-menu" aria-labelledby="documents">
-                    <a class="dropdown-item" href="crud_document.php?action=choose">Aggiungi un Documento </a>
+                    <a class="dropdown-item mobile_hide" href="crud_document.php?action=choose">Aggiungi un Documento </a>
                     <a class="dropdown-item" href="handle_document.php">Gestisci i tuoi Documenti </a>
                     <?php if($gest->checkSuperUser()) echo '
                         <a class="dropdown-item" href="check_document.php">Approva Documenti</a>
@@ -69,7 +69,7 @@ require_once "crux/check_session.php";
                 <div class="dropdown-menu" aria-labelledby="anag">
                     <a class="dropdown-item" href="handle_personal_doc_models.php">Consulta le tue dichiarazioni</a>
                     <?php if($gest->checkSuperUser()) echo '
-                    <a class="dropdown-item" href="crud_doc_models.php?action=new">Aggiungi un modello</a>
+                    <a class="dropdown-item mobile_hide" href="crud_doc_models.php?action=new">Aggiungi un modello</a>
                     <a class="dropdown-item" href="handle_doc_models.php">Gestisci i modelli</a>
                     <a class="dropdown-item" href="print_doc_models.php">Stampa/Invia una dichiarazione</a>
                   </div>
