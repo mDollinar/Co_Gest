@@ -164,8 +164,26 @@ img.sign{
     margin-top: -75px;
 }
 
+.add-button{
+    display: block;
+    float: left;
+    margin-left: 25px;
+    margin-bottom: 25px;
+    position: absolute;
+    margin-top: -75px;
+    vertical-align: middle;
+}
+
+.add-button:before{
+    font:normal normal normal 14px/1 FontAwesome;
+    content: '\f067  ';
+    font-size: 20px;
+    font-weight: bolder;
+    vertical-align: middle;
+}
+
 @media screen and (max-width: 1100px){
-    .mobile_hide{
+    .mobile_hide, .add-button{
         display: none;
     }
 }

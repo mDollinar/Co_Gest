@@ -3,7 +3,7 @@ require_once "inc/head.php";
 require_once "crux/printFunctions.php";
 ?>
     <br><h1>Gestione Modelli di Dichiarazione</h1><br>
-    <a href="crud_doc_models.php?action=new" class="btn btn-info block-left mobile_hide"><i class="fa fa-plus"></i> Aggiungi</a>
+    <a href="crud_doc_models.php?action=new" class="btn btn-info add-button">Aggiungi</a>
 <?php
 $gest->getDoc_model();
 $addFields = [
