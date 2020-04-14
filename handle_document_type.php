@@ -5,9 +5,9 @@ require_once "crux/printFunctions.php";
 $gest->collectDocuments_all();
 ?>
 <br />
-<h1>Gestione Documenti</h1>
+<h1>Gestione Tipi di Documento</h1>
 <br />
-
+<a href="crud_document_type.php?action=add" class="btn btn-info block-left"><i class="fa fa-plus"></i> Aggiungi</a>
 <?php
 printTable(
     "handle_document_type",

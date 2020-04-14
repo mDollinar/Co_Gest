@@ -7,7 +7,7 @@ require_once "crux/printFunctions.php";
 <br />
 <h1>Gestisci i tuoi Documenti</h1>
 <br />
-
+<a href="crud_document.php?action=choose" class="btn btn-info block-left mobile_hide"><i class="fa fa-plus"></i> Aggiungi</a>
 <?php
 $gest->collectDocuments_all($_SESSION['user_id']);
 

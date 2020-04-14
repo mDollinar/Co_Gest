@@ -31,28 +31,26 @@ require_once "crux/check_session.php";
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="documents" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Documenti Identificativi</a>
                 <div class="dropdown-menu" aria-labelledby="documents">
-                    <a class="dropdown-item mobile_hide" href="crud_document.php?action=choose">Aggiungi un Documento </a>
                     <a class="dropdown-item" href="handle_document.php">Gestisci i tuoi Documenti </a>
                     <?php if($gest->checkSuperUser()) echo '
                         <a class="dropdown-item" href="check_document.php">Approva Documenti</a>
-                        <a class="dropdown-item" href="crud_document.php?action=choose&v=mas">Assegna un Documento</a>
-                        <a class="dropdown-item" href="crud_document_type.php?action=add">Aggiungi un tipo di Documento</a>
                         <a class="dropdown-item" href="handle_document_type.php">Gestisci i tipi di Documento</a>
-                        <a class="dropdown-item" href="view_documents.php">Anagrafica Documenti</a>
+                        <a class="dropdown-item" href="view_documents.php">Gestione Documenti</a>
                         ';?>
                 </div>
             </li>
             <!--<li class="nav-item">
+            TODO: specializzazioni
                 <a class="nav-link" href="varchi.php">Specializzazioni</a>
             </li>-->
             <?php if($gest->checkSuperUser()) echo '
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="anag" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Utenti</a>
                 <div class="dropdown-menu" aria-labelledby="anag">
-                     <a class="dropdown-item" href="view_users.php">Anagrafica Utenti</a>
-                    <a class="dropdown-item" href="view_users.php?op=true">Anagrafica Operativi</a>
-                    <a class="dropdown-item" href="view_users.php?nop=true">Anagrafica NON Operativi</a>
-                    <a class="dropdown-item" href="view_users.php?dim=true">Anagrafica Dimessi</a>
+                     <a class="dropdown-item" href="view_users.php">Attivi</a>
+                    <a class="dropdown-item" href="view_users.php?op=true">Operativi</a>
+                    <a class="dropdown-item" href="view_users.php?nop=true">NON Operativi</a>
+                    <a class="dropdown-item" href="view_users.php?dim=true">Dimessi</a>
                     <a class="dropdown-item" href="check_users.php">Approvazione nuovi Utenti</a>
                   </div>
             </li>';?>
@@ -65,13 +63,12 @@ require_once "crux/check_session.php";
                   </div>
             </li>';?>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="anag" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dichiarazioni Firmate</a>
+                <a class="nav-link dropdown-toggle" href="#" id="anag" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Note e Modelli</a>
                 <div class="dropdown-menu" aria-labelledby="anag">
                     <a class="dropdown-item" href="handle_personal_doc_models.php">Consulta le tue dichiarazioni</a>
                     <?php if($gest->checkSuperUser()) echo '
-                    <a class="dropdown-item mobile_hide" href="crud_doc_models.php?action=new">Aggiungi un modello</a>
-                    <a class="dropdown-item" href="handle_doc_models.php">Gestisci i modelli</a>
-                    <a class="dropdown-item" href="print_doc_models.php">Stampa/Invia una dichiarazione</a>';?>
+                    <a class="dropdown-item" href="handle_doc_models.php">Gestisci le note e i modelli</a>
+                    <a class="dropdown-item" href="print_doc_models.php">Stampa/Invia</a>';?>
                   </div>
             </li>
                     
@@ -80,7 +77,7 @@ require_once "crux/check_session.php";
                 <a class="nav-link dropdown-toggle" href="#" id="anag" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mail</a>
                 <div class="dropdown-menu" aria-labelledby="anag">
                     <a class="dropdown-item" href="view_keys.php">Tutte le mail</a>
-                    <a class="dropdown-item" href="view_doc_model_keys.php">Dichiarazioni via mail</a>
+                    <a class="dropdown-item" href="view_doc_model_keys.php">Note e Modelli via mail</a>
                   </div>
             </li>';?>
         </ul>
