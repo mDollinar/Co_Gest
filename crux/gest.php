@@ -640,9 +640,14 @@ class Gest extends MultiFunction {
         }elseif (isset($access_level)){
             $cond = "access_level = 2";
             if($access_level == 1)  $cond .= " or access_level = 1";
-            $this->select(true, "id, titolo, fixed_date, auto_user_data", "doc_models", $cond, "titolo");
+            $this->select(true, "id, titolo, fixed_date, auto_user_data, access_level, pres_sign", "doc_models", $cond, "titolo");
         }else{
-            $this->select(true, "id, titolo, fixed_date, auto_user_data", "doc_models", null, "titolo");
+            $this->select(true, "id, titolo, fixed_date, auto_user_data, access_level, pres_sign", "doc_models", null, "titolo");
+        }
+        for($i=0; $i<count($this->results); $i++){
+            if($this->results[$i]['access_level'] == 0) $this->results[$i]['access_level'] = "<span class='null'>Solo Master</span>";
+            if($this->results[$i]['access_level'] == 1) $this->results[$i]['access_level'] = "<span class='n'>Master e Operativi</span>";
+            if($this->results[$i]['access_level'] == 2) $this->results[$i]['access_level'] = "<span class='y'>Tutti</span>";
         }
     }
     public function updateDoc_model($nome, $t1, $t2, $t3, $particella, $fixed_date, $giorno, $auto_user_data, $data_field, $access_level, $pres_sign, $header_doc_model){
