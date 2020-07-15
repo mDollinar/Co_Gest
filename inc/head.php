@@ -84,7 +84,7 @@ require_once "crux/check_session.php";
         <div class="nav-item dropdown pull-right">
             <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> Gestione Account </a>
             <div class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
-                <a class="dropdown-item" href="crud_user.php">I miei Dati</a>
+                <a class="dropdown-item" href="view_user.php">I miei Dati</a>
                 <?php
                     if($gest->checkSuperUser() || $_SESSION['simulation'] == 1){
                 ?>
