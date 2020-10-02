@@ -140,6 +140,7 @@ class Gest extends MultiFunction {
     }
     public function editDocuments($insert, $nome, $scadenza, $numero, $required, $require_attach_front, $require_attach_back, $id=null){
         $nome = $this->setText($nome);
+        $nome = trim($nome);
         if(is_null($scadenza)) $scadenza = 0;
         else $scadenza = 1;
         if(is_null($numero)) $numero = 0;
@@ -151,7 +152,7 @@ class Gest extends MultiFunction {
         if(is_null($require_attach_back)) $require_attach_back = 0;
         else $require_attach_back = 1;
         if($insert){
-            $v = ['nome, scadenza, numero, required, require_attach_front, require_attach_back',
+            $v = ["nome, scadenza, numero, required, require_attach_front, require_attach_back",
                 "'$nome', $scadenza, $numero, $required, $require_attach_front, $require_attach_back"];
             $this->insert("type_document", $v);
             $this->addLog("aggiunto un nuovo tipo di documento.", true);

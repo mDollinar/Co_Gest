@@ -61,6 +61,7 @@ function generate_string($input, $strength = 16) {
 		
 		//funzione di sviluppo per controllare la query
 		public function printQuery(){
+			echo "<br>";
 			var_dump($this->query);
 		}
 		
@@ -247,21 +248,20 @@ function generate_string($input, $strength = 16) {
         }
 		
 		/*inserimento valori nel db*/
-		public function insert($table,$values, $last_id = false){
+		public function insert($table, $values, $last_id = false){
 			$this->query = "INSERT INTO $table($values[0]) VALUES ($values[1])";
 			if(count($values)>2){
 				for($i = 2; $i<count($values); $i++){
 					$this->query .= ", ($values[$i])";
 				}
 			}
-			
 			$check = mysqli_query($this->conn,$this->query);
 			if(!$check) print "Query errata: ".mysqli_error($this->conn). " Query: ".$this->query;
 			if($last_id == true){
 				$this->results['last_id'] = mysqli_insert_id($this->conn);
 			}else{
 				return false;
-			} 
+			}
 		}
 		
 		/*esecuzione di una funzione prestabilita di sql e restituzione dei valori calcolati dai record dal db*/
