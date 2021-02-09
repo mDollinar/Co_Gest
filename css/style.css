@@ -187,6 +187,28 @@ img.sign{
     margin: 0 20px;
 }
 
+/*Aggiunte del Demo */
+
+img.imglogo {
+    display: block;
+    margin: 20px auto;
+    width: 15%;
+}
+
+.imglogo-small {
+    float: left;
+    max-width: 75px;
+    margin: 5px 5px;
+}
+
+.tuttigliutenti {
+    margin: auto 20px;
+}
+
+.row {
+    border-style; solid;
+}
+
 .navbar-brand{
     background-image: url("/inc/assologo.png");
     background-size: 40px;
