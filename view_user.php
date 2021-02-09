@@ -11,9 +11,9 @@ else $photo = "file/personal_photos/".$photo;
 
 <div class="container">
     <br><h1>Dati Utente</h1><br>
-    <img src="<?php echo $photo ?>" title="Foto Tessera" class="photo"/>
+    <div class="anag"><h4><?php echo restring("Foto Tessera&nbsp;&nbsp;<a href='crud_user.php?sec=photo'>%edit%</a>")?></h4><p><img src="<?php echo $photo ?>" title="Foto Tessera" class="photo"/></p></div>
     <div class="anag"><h4><?php echo restring("Dati Anagrafici&nbsp;&nbsp;<a href='crud_user.php?sec=anag'>%edit%</a>")?></h4><p>Cognome: <?php echo $cognome?></p><p>Nome: <?php echo $nome?></p><p>Codice Fiscale:<?php echo $CF?></p><p>Nato/a a <?php echo $nascita_citta.", (".$nascita_pr.")"?> il <?php echo printField($nascita)?></p></div>
-    <div class="res">
+	<div class="res">
         <?php
             if(strlen($domicilio)>0){
         ?>

@@ -113,7 +113,7 @@ class Gest extends MultiFunction {
         return $this->results[0]['id'];
     }
     public function RegisterUser($nome, $cognome, $username, $password, $mail, $code){
-        $nome = $this->setText($nome);
+        $nome = $this->setText(ucfirst(mb_strtolower($nome)));
         $cognome = $this->setText(mb_strtoupper($cognome));
         $v = [
             "nome, cognome, usr, pwd, mail, assocode",
@@ -480,32 +480,66 @@ class Gest extends MultiFunction {
             $this->subSelectOnField("dimissione", "MAX(giorno) AS giorno", "registro_iscrizioni", "id_user", "id", null, null, "and ingresso = 0");
         }
     }
-    public function updateUserData($id, $mail, $pwd, $tel, $CF, $nascita, $nascita_citta, $nascita_pr, $indirizzo, $indirizzo_cap, $indirizzo_citta, $indirizzo_pr, $nome, $cognome, $operativo, $master, $numero_socio, $photo){
-        $tel = $this->setText($tel);
-        $CF = $this->setText(mb_strtoupper($CF));
-        $nascita_citta = $this->setText(mb_strtoupper($nascita_citta));
-        $nascita_pr = $this->setText(mb_strtoupper($nascita_pr));
-        $indirizzo = $this->setText(mb_strtoupper($indirizzo));
-        $indirizzo_citta = $this->setText(mb_strtoupper($indirizzo_citta));
-        $indirizzo_pr = $this->setText(mb_strtoupper($indirizzo_pr));
-        if(isset($nome)) $nome = $this->setText($nome);
-        if(isset($cognome)) $cognome = $this->setText(mb_strtoupper($cognome));
+    public function updateUserData($sec){
+        if($sec == "anag"){
+            global $CF, $nascita_citta, $nascita_pr, $nascita, $nome, $cognome;
+            $CF = $this->setText(mb_strtoupper($CF));
+            $nascita_citta = $this->setText(mb_strtoupper($nascita_citta));
+            $nascita_pr = $this->setText(mb_strtoupper($nascita_pr));
+            if(isset($nome)) $nome = $this->setText(ucfirst(mb_strtolower($nome)));
+            if(isset($cognome)) $cognome = $this->setText(mb_strtoupper($cognome));
 
-        if(strlen($tel) == 0) $tel = "NULL"; else $tel = "'".$tel."'";
-        if(strlen($mail) == 0) $mail = "NULL"; else $mail = "'".$mail."'";
+            if(strlen($CF) == 0) $CF = "NULL"; else $CF = "'".$CF."'";
+            if(strlen($nascita_citta) == 0) $nascita_citta = "NULL"; else $nascita_citta = "'".$nascita_citta."'";
+            if(strlen($nascita_pr) == 0) $nascita_pr = "NULL"; else $nascita_pr = "'".$nascita_pr."'";
+            if(strlen($nascita) == 0) $nascita = "NULL"; else $nascita = "'".$nascita."'";
+            if(isset($nome)) if(strlen($nome) == 0) $nome = "NULL"; else $nome = "'".$nome."'";
+            if(isset($cognome)) if(strlen($cognome) == 0) $cognome = "NULL"; else $cognome = "'".$cognome."'";
+
+            $c = [
+                "CF = $CF",
+                "nascita = $nascita",
+                "nascita_citta = $nascita_citta",
+                "nascita_pr = $nascita_pr"
+            ];
+            if(isset($nome)) array_push($c, "nome = $nome");
+            if(isset($cognome)) array_push($c,"cognome = $cognome");
+
+        }elseif ($sec == "resdom"){
+            global $indirizzo, $indirizzo_cap, $indirizzo_citta, $indirizzo_pr;
+            $indirizzo = $this->setText(mb_strtoupper($indirizzo));
+            $indirizzo_citta = $this->setText(mb_strtoupper($indirizzo_citta));
+            $indirizzo_pr = $this->setText(mb_strtoupper($indirizzo_pr));
+
+            if(strlen($indirizzo) == 0) $indirizzo = "NULL"; else $indirizzo = "'".$indirizzo."'";
+            if(strlen($indirizzo_citta) == 0) $indirizzo_citta = "NULL"; else $indirizzo_citta = "'".$indirizzo_citta."'";
+            if(strlen($indirizzo_pr) == 0) $indirizzo_pr = "NULL"; else $indirizzo_pr = "'".$indirizzo_pr."'";
+            if(strlen($indirizzo_cap) == 0) $indirizzo_cap = "NULL"; else $indirizzo_cap = "'".$indirizzo_cap."'";
+
+            $c = [
+                "indirizzo = $indirizzo",
+                "indirizzo_cap = $indirizzo_cap",
+                "indirizzo_citta = $indirizzo_citta",
+                "indirizzo_pr = $indirizzo_pr"
+            ];
+        }elseif ($sec == "cont"){
+            global $tel, $mail;
+            //TODO: aggiungere splitter per telefono verificando lo 0 iniziale per i fissi, con verifica del +39
+            $mail = $this->setText($mail);
+            if(strlen($tel) == 0) $tel = "NULL"; else $tel = "'".$tel."'";
+            if(strlen($mail) == 0) $mail = "NULL"; else $mail = "'".$mail."'";
+            $c = [
+                "mail = $mail",
+                "tel = $tel"
+            ];
+        } //TODO: aggiungere le restanti sezioni
+
+
         if(strlen($pwd) == 0) $pwd = "NULL"; else $pwd = "'".$pwd."'";
         if(strlen($numero_socio) == 0) $numero_socio = "NULL"; else $numero_socio = "'".$numero_socio."'";
 
-        if(strlen($CF) == 0) $CF = "NULL"; else $CF = "'".$CF."'";
-        if(strlen($nascita_citta) == 0) $nascita_citta = "NULL"; else $nascita_citta = "'".$nascita_citta."'";
-        if(strlen($nascita_pr) == 0) $nascita_pr = "NULL"; else $nascita_pr = "'".$nascita_pr."'";
-        if(strlen($indirizzo) == 0) $indirizzo = "NULL"; else $indirizzo = "'".$indirizzo."'";
-        if(strlen($indirizzo_citta) == 0) $indirizzo_citta = "NULL"; else $indirizzo_citta = "'".$indirizzo_citta."'";
-        if(strlen($indirizzo_pr) == 0) $indirizzo_pr = "NULL"; else $indirizzo_pr = "'".$indirizzo_pr."'";
-        if(strlen($indirizzo_cap) == 0) $indirizzo_cap = "NULL"; else $indirizzo_cap = "'".$indirizzo_cap."'";
-        if(strlen($nascita) == 0) $nascita = "NULL"; else $nascita = "'".$nascita."'";
-        if(isset($nome)) if(strlen($nome) == 0) $nome = "NULL"; else $nome = "'".$nome."'";
-        if(isset($cognome)) if(strlen($cognome) == 0) $cognome = "NULL"; else $cognome = "'".$cognome."'";
+
+
         $c = [
             "mail = $mail",
             "pwd = $pwd",
@@ -544,6 +578,7 @@ class Gest extends MultiFunction {
         }
         $this->addLog("aggiornato i dati dell'utente $cognome $nome [$id].", true);
     }
+
     public function getPendingUsers(){
         $this->select(true, "id, cognome, nome, mail", "users", "abilis = 0 and dimesso = 0");
     }
@@ -567,7 +602,7 @@ class Gest extends MultiFunction {
             <p>La motivazione &egrave; la seguente: $cause</p>
             <p>Ci scusiamo per l&apos;inconveniente. Per qualunque cosa contattaci a $ref_mail@$domain</p>
         ";
-        $this->sendMail($this->results[0]['mail'], "Approvazione Utente", $message);
+        $this->sendMail($this->results[0]['mail'], "Rigetto Richiesta iscrizione Utente", $message);
         $this->delete("users", "id = $id");
         $this->addLog("rigettato l'utente con id = $id, con causale: '$cause'.", true);
 
