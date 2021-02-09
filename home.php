@@ -9,8 +9,8 @@ require_once "inc/head.php";
             if ($gest->checkPendingUsers()) $gest->printPendingUsers();
             if ($gest->checkPendingDocuments()) $gest->printPendingDocuments();
             if ($gest->checkEditedUsers()) $gest->printEditedUsers();
-            if (!$gest->checkUserData($_SESSION['user_id'])) $gest->printUserAlert();
         }
+            if (!$gest->checkUserData($_SESSION['user_id'])) $gest->printUserAlert();
     ?>
     </div>
 </div>
