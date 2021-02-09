@@ -31,3 +31,6 @@ inc/assologo.png
 *.pdf
 *.gif
 /file/personal_photos/
+/robots.txt
+/view_user-test.php
+/view_users-test.php
