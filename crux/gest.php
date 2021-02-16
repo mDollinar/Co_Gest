@@ -233,7 +233,7 @@ class Gest extends MultiFunction {
             $c = [];
             $check = null;
             if($approved) array_push($c, "abilis = 1");
-            else array_push($c, "abilis = 0");
+            else array_push($c, "abilis = 0", "rejected = 0");
             if($load_scadenza) array_push($c, "scadenza = '$scadenza'");
             if($load_numero) array_push($c, "numero = '$numero'");
             if($load_front){
@@ -321,7 +321,7 @@ class Gest extends MultiFunction {
     }
     public function checkPendingDocuments(){
         $this->reset();
-        $this->funct("id", "link_document_users", "COUNT", "abilis = 0");
+        $this->funct("id", "link_document_users", "COUNT", "abilis = 0 and rejected = 0");
         if($this->results[0]['id']>0) {
             $this->reset();
             return true;
@@ -336,7 +336,7 @@ class Gest extends MultiFunction {
         <div class="card-body bg-light">
             <h6 class="card-title">I seguenti documenti sono in attesa di approvazione.</h6>
             <div class="list-group">';
-        $this->select(true, "id, id_user, id_document", "link_document_users", "abilis = 0", "scadenza");
+        $this->select(true, "id, id_user, id_document", "link_document_users", "abilis = 0 and rejected = 0", "scadenza");
         $this->subSelectOnField("document", "nome", "type_document", "id", "id_document");
         $this->subSelectOnField("user", "cognome, nome", "users", "id", "id_user");
         echo "<ul class='list-group bg-light'>";
