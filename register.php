@@ -27,10 +27,12 @@
             <input type="text" name="myusername" id="myusername" class="form-control input-index" placeholder="UserName: m.rossi" required>
             <input type="password" name="mypassword" id="mypassword" class="form-control input-index" placeholder="Password" required>
             <input type="email" name="mail" id="mail" class="form-control input-index" placeholder="mail: m.rossi@gmail.com" required>
-            <input type="submit" value="Invia" class="btn btn-info btn-index">
+            <input type="submit" value="Registrati" class="btn btn-info btn-index">
+            <a class="btn btn-info" href="login.php">Accedi!</a>
         </div>
         </form>
-<?php
+
+        <?php
     }elseif ($action == "check") {
         $check = $gest->checkRegister($mail, $myusername);
         if ($check>0) {

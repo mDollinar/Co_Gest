@@ -9,6 +9,7 @@ require_once "inc/head-nm.php";
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<img src="<?php echo $asso_logo; ?>" alt="Logo" class="imglogo">
 <form action="crux/checklogin.php" method="post">
     <div class="form-group">
         <h1><?php echo $asso_ext_name; ?>Gestionale Volontari</h1>

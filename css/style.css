@@ -25,13 +25,6 @@ input[type=submit].btn-info.btn-index{
 .form-group{
     margin: 15px 10px;
 }
-.form-group h1, .form-group a{
-    text-align: center;
-    display: block;
-    width: 100%;
-    margin: 20px 0;
-    font-size: 1.8em;
-}
 
 .alert{
     font-size: 1.5em;
@@ -40,11 +33,13 @@ input[type=submit].btn-info.btn-index{
     margin: 10px auto;
     text-align: center;
 }
+
 h4>strong{
     font-size: 1.2em;
     font-style: italic;
     text-decoration: underline;
 }
+
 a.btn.btn-info.btn-index{
     width: 50%;
     font-size: 1em;
@@ -53,6 +48,7 @@ a.btn.btn-info.btn-index{
 h1{
     text-align: center;
 }
+
 input.btn.btn-info, input.btn.btn-danger{
     width: auto !important;
     display: block;
@@ -187,8 +183,70 @@ img.sign{
     margin: 0 20px;
 }
 
+/*Aggiunte del Demo */
+
+img.imglogo {
+    display: block;
+    margin: 20px auto;
+    width: 15%;
+}
+
+.imglogo-small {
+    float: left;
+    max-width: 75px;
+    margin: 5px 5px;
+}
+
+.tuttigliutenti {
+    margin: auto 20px;
+}
+
+.row {
+    border-style: solid;
+}
+
+.navbar-brand{
+    background-image: url("/inc/assologo.png");
+    background-size: 40px;
+    background-repeat: no-repeat;
+    padding-left: 50px;
+}
+
+.sidebar{
+    width: 400px;
+    height: 100vh;
+}
+
+.sidebar, #side-toggle{
+    z-index: 2;
+}
+
+.sidebar div.dropdown{
+    width: 100%;
+}
+
+#side-toggle{
+    margin-left: 5px;
+    margin-top: 15px;
+}
+
+.form-group h1, .form-group a{
+    text-align: center;
+    display: block;
+    width: 100%;
+    margin: 20px auto;
+    font-size: 1.8em;
+}
+
+.form-group a, input.btn.btn-info {
+    width: 150px !important;
+    padding: 5px;
+    font-size: 1em;
+}
+
+
 @media screen and (max-width: 1100px){
     .mobile_hide, .add-button{
-        display: none;
+        display: none !important;
     }
 }
