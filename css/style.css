@@ -206,7 +206,7 @@ img.imglogo {
 }
 
 .row {
-    border-style; solid;
+    border-style: solid;
 }
 
 .navbar-brand{
@@ -216,8 +216,26 @@ img.imglogo {
     padding-left: 50px;
 }
 
+.sidebar{
+    width: 400px;
+    height: 100vh;
+}
+
+.sidebar, #side-toggle{
+    z-index: 2;
+}
+
+.sidebar div.dropdown{
+    width: 100%;
+}
+
+#side-toggle{
+    margin-left: 5px;
+    margin-top: 15px;
+}
+
 @media screen and (max-width: 1100px){
     .mobile_hide, .add-button{
-        display: none;
+        display: none !important;
     }
 }
