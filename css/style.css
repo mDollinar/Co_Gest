@@ -24,6 +24,7 @@ input[type=submit].btn-info.btn-index{
 
 .form-group{
     margin: 15px 10px;
+    text-align: center;
 }
 
 .alert{
@@ -40,11 +41,6 @@ h4>strong{
     text-decoration: underline;
 }
 
-a.btn.btn-info.btn-index{
-    width: 50%;
-    font-size: 1em;
-    margin: 10px auto;
-}
 h1{
     text-align: center;
 }
@@ -204,6 +200,7 @@ img.imglogo {
 .row {
     border-style: solid;
 }
+/* fine sezione demo*/
 
 .navbar-brand{
     background-image: url("/inc/assologo.png");
@@ -230,19 +227,19 @@ img.imglogo {
     margin-top: 15px;
 }
 
-.form-group h1, .form-group a{
+.form-group h1{
     text-align: center;
     display: block;
-    width: 100%;
+    min-width: 100%;
     margin: 20px auto;
     font-size: 1.8em;
 }
 
-.form-group a, input.btn.btn-info {
-    width: 150px !important;
-    padding: 5px;
-    font-size: 1em;
+.form-group a {
+    min-width: 150px;
 }
+
+
 
 
 @media screen and (max-width: 1100px){

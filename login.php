@@ -21,6 +21,7 @@ require_once "inc/head-nm.php";
             <input type="text" name="myusername" id="myusername" class="form-control input-index" placeholder="Utente" required>
             <input type="password" name="mypassword" id="mypassword" class="form-control input-index" placeholder="Password" require>
             <input type="submit" value="Accedi" class="btn btn-info btn-index">
+            <a class="btn btn-info" href="pwd_recover.php">Password Dimenticata?</a>
             <a class="btn btn-info" href="register.php">Registrati!</a>
         </div>
     </form>

@@ -17,6 +17,7 @@ class Gest extends MultiFunction {
     }
     public function sendMail($to, $subject, $message){
         global $asso_name;
+        $ret;
 
         $from = $asso_name.' No-Reply <no-reply@intranet.gianninocaria.it>';
 
@@ -35,12 +36,14 @@ class Gest extends MultiFunction {
         $msg = $msg.'</body></html>';
 
 // Sending email
+        //ToDo: correggere la generazione della url dei due alert seguenti
         if (mail($to, $subject, $msg, $headers)) {
-            printAlert("success", "La mail &egrave stata inviata con successo!", [array("value"=>"Torna Indietro", "url"=>"print_doc_models.php?action=user&id_model=".$_GET['id_model'], "class"=>"info")]);
+            $ret = true;
         } else {
-            printAlert("danger", "Purtroppo qualcosa è andato storto, ti preghiamo di riprovare pi&ugrave; tardi", [array("value"=>"Torna Indietro", "url"=>"print_doc_models.php?action=user&id_model=".$_GET['id_model'], "class"=>"danger")]);
+            $ret = false;
         }
         $this->addLog("inviato una mail con oggetto ".$subject." a ".$to, true);
+        return $ret;
 
     }
 
@@ -122,6 +125,21 @@ class Gest extends MultiFunction {
         $this->insert("users", $v);
         $this->addLog("Aggiunta richiesta di iscrizione di $cognome $nome.");
         //Todo:invio mail conferma riassuntiva
+    }
+
+    //Recupero Password
+    public function checkRecover($mail){
+        $this->funct("id", "users", "COUNT", "mail = '$mail'");
+        return $this->results[0]['id'];
+    }
+
+    public function recoverPwd($mail){
+        global $asso_name;
+        $this->reset();
+        $this->select(true, "nome, cognome, usr, pwd", "users", "mail = '$mail'");
+        $sub = "Recupero password da $asso_name";
+        $text = "<p> Gentile <strong>".$this->results[0]['nome']." ".$this->results[0]['cognome']."</strong> la sua password &egrave; <strong><em>".$this->results[0]['pwd']."</em></strong> mentre il suo nome utente &egrave; <strong><em>".$this->results[0]['usr']."</em></strong></p>";
+        $this->sendMail($mail, $sub, $text);
     }
 
     //Documenti
@@ -712,6 +730,11 @@ class Gest extends MultiFunction {
         if(strlen($addToMail)>0) $message .= $addToMail;
         $message .= "<p><a href=http://intranet.gianninocaria.it/ext_key.php?key=$key>Scarica la Dichiarazione</a></p>";
         $message .= "<p>Ringraziandola per il lavoro che svolge ogni giorno per la nostra associazione<br>Lo Staff</p>";
-        $this->sendMail($mail,"Invio Dichiarazione ".$titolo." da ".$asso_name, $message);
+        $ret = $this->sendMail($mail,"Invio Dichiarazione ".$titolo." da ".$asso_name, $message);
+        if($ret){
+            printAlert("success", "La mail &egrave stata inviata con successo!", [array("value"=>"Torna Indietro", "url"=>"print_doc_models.php?action=user&id_model=".$_GET['id_model'], "class"=>"info")]);
+        }else{
+            printAlert("danger", "Purtroppo qualcosa è andato storto, ti preghiamo di riprovare pi&ugrave; tardi", [array("value"=>"Torna Indietro", "url"=>"print_doc_models.php?action=user&id_model=".$_GET['id_model'], "class"=>"danger")]);
+        }
     }
 }
