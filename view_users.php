@@ -35,7 +35,7 @@ if(isset($_GET['op'])){
     <h4 class="text-center">Utenti visualizzati (<span id="counter"><?php echo count($gest->results) ?></span>)</h4><br />
 <?php
 
-$addField = ["<a href='crud_user.php?&id=%id%&o=".$o."'>%edit%</a>"];
+$addField = ["<a href='view_user.php?&id=%id%&o=".$o."'>%edit%</a>"];
 
 printTable("view_users", ['Cognome', 'Nome', 'Mail', 'Telefono', 'Codice Fiscale', 'Data di Nascita', 'Numero Socio', 'Foto Tessera', 'Operativo', 'Iscrizione', 'Dimissione' ,'Admin', 'Master', 'Azioni'], $gest->results, "file/personal_photos/", ['cognome', 'nome', 'mail', 'tel', 'CF', 'nascita', 'numero_socio', 'photo', 'operativo', 'iscrizione', 'dimissione', 'adm', 'master'], ['iscrizione', 'dimissione'], $addField);
 ?>

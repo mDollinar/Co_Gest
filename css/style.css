@@ -239,7 +239,9 @@ img.imglogo {
     min-width: 150px;
 }
 
-
+.anag img{
+    width: 400px;
+}
 
 
 @media screen and (max-width: 1100px){
