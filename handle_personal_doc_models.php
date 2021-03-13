@@ -13,14 +13,19 @@ if(!isset($id_model)) {
         $gest->reset();
         $gest->getDoc_model(null, $access_level);
     } ?>
-    <br><h1>Consulta le tue Dichiarazioni</h1><br>
+    </br>
+    <div id="maincontent">
+    <h1>Consulta le tue Dichiarazioni</h1><br>
+    <div class="container">
     <?php
     $addFields = ['<a href=handle_personal_doc_models.php?id_model=%id%>%print%</a>'];
-    printTable("print_doc_models_choose_model", ['Titolo', 'Scegli il Documento'], $gest->results, "file", ['titolo'], null, $addFields);
+    printTable("print_doc_models_choose_model", ['Titolo', 'Stampa il documento'], $gest->results, "file", ['titolo'], null, $addFields);
 }else{
     $gest->reset();
     $gest->getDoc_model($id_model);
     extract($gest->results[0]);
     printDoc_model(0, $titolo, $fixed_date, $giorno, $t1, $t2, $t3, $particella, $auto_user_data, $data_field, null, $_SESSION['user_id'], $pres_sign, $header_doc_model);
     $gest->addLog("visualizzato il modello dal titolo ".$titolo." [personale]", true);
-}
+}?>
+</div>
+</div>

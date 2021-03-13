@@ -2,7 +2,9 @@
 require_once "inc/head.php";
 require_once "crux/printFunctions.php";
 ?>
-<br><h1>Visualizza tutte le Dichiarazioni Firmate inviate dal Sistema</h1><br>
+<br>
+<div id="maincontent">
+    <h1>Visualizza tutte le Dichiarazioni Firmate inviate dal Sistema</h1><br>
 <div class="container">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
@@ -26,5 +28,6 @@ require_once "crux/printFunctions.php";
             ?>
         </div>
     </div>
+</div>
 </div>
 <script>$("#mail_attive div.dropdown-filter-dropdown+div.dropdown-filter-dropdown").remove()</script>

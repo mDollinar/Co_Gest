@@ -4,7 +4,10 @@ require_once "crux/printFunctions.php";
 extract($_GET);
 if(!isset($id_model)) {
     ?>
-    <br><h1>Scegli il modello da stampare</h1><br>
+    <br>
+    <div id="maincontent">
+    <div class="container">
+    <h1>Scegli il modello da stampare</h1><br>
     <?php
     $gest->reset();
     $gest->getDoc_model();
@@ -12,7 +15,12 @@ if(!isset($id_model)) {
     printTable("print_doc_models_choose_model", ['Titolo', 'Scegli il Documento'], $gest->results, "file", ['titolo'], null, $addFields);
 }elseif(isset($id_model) && !isset($id_user)){
     ?>
-    <br><h1>Scegli l'utente per cui stampare </h1><br>
+    </div>
+    <br>
+    </div>
+    <div id="maincontent">
+    <div class="container">
+    <h1>Scegli l'utente per cui stampare </h1><br>
     <?php
     $gest->reset();
     $gest->getUserData();
@@ -27,17 +35,21 @@ if(!isset($id_model)) {
         extract($gest->results[0]);
         extract($gest->results[1]);
         ?>
+        </div>
+        </div>
         <script src="https://cdn.ckeditor.com/ckeditor5/17.0.0/classic/ckeditor.js"></script>
         <script src="https://cdn.ckeditor.com/ckeditor5/17.0.0/classic/translations/it.js"></script>`
-        <br><h1>Invia &quot;<?php echo $titolo ?>&quot; per mail a <?php echo $cognome . " " . $nome ?> </h1><br>
+        <br/>
+        <div id="maincontent">
+        <div class="container">
+        <h1>Invia &quot;<?php echo $titolo ?>&quot; per mail a <?php echo $cognome . " " . $nome ?> </h1><br/>
         <form
-            action='print_doc_models.php?action=sendMail&id_user=<?php echo $id_user; ?>&id_model=<?php echo $id_model; ?>' method='post' class='form-group'>
-            <div class="container">
-                <br>
+            action='print_doc_models.php?action=sendMail&id_user=<?php echo $id_user; ?>&id_model=<?php echo $id_model; ?>' method='post' class='form-group'>                <br/>
                 <h2>Vuoi Aggiungere qualcosa?</h2>
                 <h4>In caso contrario lasciare il campo in bianco</h4>
                 <textarea id="addToMail" name="addToMail"></textarea><br/>
                 <input type="submit" value="Invia" class="btn btn-info">
+            </div>
             </div>
             <script>
                 ClassicEditor
@@ -68,3 +80,4 @@ if(!isset($id_model)) {
         $gest->addLog("visualizzato il modello con titolo ".$titolo." per l'utente ".$id_user, true);
     }
 }
+?>

@@ -5,7 +5,34 @@ require_once "crux/printFunctions.php";
 
 ?>
 <br />
+<div id="maincontent">
+<div class="container">       
 <h1>Gestisci i tuoi Documenti</h1>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#docID">
+  Clicca per la Guida in linea
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="docID" tabindex="-1" role="dialog" aria-labelledby="docIDLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="docIDLabel">Aggiungi documento di identità</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        In questa sezione puoi caricare le copie dei tuoi documenti di identità. Invia il fronte e il retro in file separati.<br> Clicca sul pulsante <strong>"Aggiungi"</strong>, seleziona cliccando sul <strong>"+"</strong> quale documento vuoi caricare e segui la procedura.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
 <br />
 <a href="crud_document.php?action=choose" class="btn btn-info add-button">Aggiungi</a>
 <?php
@@ -25,5 +52,6 @@ printTable("handle_document", [ "Nome", "Scadenza", "Numero", "Allegato Fronte",
     ["nome", "scadenza", "numero", "attach_front", "attach_back", "attach_master", "stato"],
     $subFields,
     $addFields
-);
-
+);?>
+</div>
+</div>

@@ -4,6 +4,7 @@ require_once "crux/printFunctions.php";
 extract($_GET);
 ?>
 <br />
+<div id="maincontent">
 <h1>Gestione aggiornamenti Documenti</h1>
 <br />
 
@@ -58,3 +59,5 @@ if($action=="eval"){
     $buttons = [array("url" => "check_document.php", "class" => "danger", "value" => "Torna indietro")];
     printAlert("danger", "Documento rigettato.", $buttons, "danger");
 }
+?>
+</div>

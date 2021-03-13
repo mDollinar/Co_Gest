@@ -6,7 +6,9 @@ if($action == "new"){
     ?>
     <script src="https://cdn.ckeditor.com/ckeditor5/17.0.0/classic/ckeditor.js"></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/17.0.0/classic/translations/it.js"></script>`
-    <br><h1>Aggiungi un nuovo Modello di Dichiarazione</h1><br>
+    <br>
+    <div id="maincontent">
+        <h1>Aggiungi un nuovo Modello di Dichiarazione</h1><br>
     <div class="container">
         <form action='crud_doc_models.php?action=preview&save=1' method='post' class='form-group' target="_blank">
             <div class="input-group mb-3">
@@ -165,7 +167,9 @@ if($action == "new"){
     ?>
     <script src="https://cdn.ckeditor.com/ckeditor5/17.0.0/classic/ckeditor.js"></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/17.0.0/classic/translations/it.js"></script>`
-    <br><h1>Aggiorna il modello di Dichiarazione</h1><br>
+    </br>
+    <div id="maincontent">
+    <h1>Aggiorna il modello di Dichiarazione</h1><br>
     <div class="container">
         <form action='crud_doc_models.php?action=previewUpdate&save=1&id=<?php echo $id; ?>' method='post' class='form-group' target="_blank">
             <div class="input-group mb-3">
@@ -243,6 +247,7 @@ if($action == "new"){
             <input type="submit" value="Salva" class="btn btn-info">
         </form>
     </div>
+    </div>
     <script>
         ClassicEditor
             .create( document.querySelector( '#t1' ), {
@@ -313,3 +318,5 @@ if($action == "new"){
     $buttons = [array("url" => "handle_doc_models.php", "class" => "info", "value" => "Torna Indietro")];
     printAlert("success", "Complimenti, il Modello di Dichiarazione &egrave; stato aggiornato con successo!", $buttons);
 }
+?>
+</div>

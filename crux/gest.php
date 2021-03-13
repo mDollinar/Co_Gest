@@ -498,7 +498,7 @@ class Gest extends MultiFunction {
             $this->subSelectOnField("dimissione", "MAX(giorno) AS giorno", "registro_iscrizioni", "id_user", "id", null, null, "and ingresso = 0");
         }
     }
-    public function updateUserData($sec){
+    public function updateUserData($sec, $id){
         if($sec == "anag"){
             global $CF, $nascita_citta, $nascita_pr, $nascita, $nome, $cognome;
             $CF = $this->setText(mb_strtoupper($CF));
@@ -550,46 +550,42 @@ class Gest extends MultiFunction {
                 "mail = $mail",
                 "tel = $tel"
             ];
-        } //TODO: aggiungere le restanti sezioni
+        }elseif($sec == "pwd"){
+            global $pwd;
+            if(strlen($pwd) == 0) $pwd = "NULL"; else $pwd = "'".$pwd."'";
+            $c = [
+                "pwd = $pwd"
+            ];
+        }elseif($sec == "op"){
+            global $numero_socio, $operativo, $master;
+            if(strlen($numero_socio) == 0) $numero_socio = "NULL"; else $numero_socio = "'".$numero_socio."'";
+            $c = [
+                "numero_socio = $numero_socio",
+                "operativo = $operativo",
+                "master = $master"
+            ];
+        }elseif ($sec == "photo"){
+            if(strlen($photo['name'])>0) {
+                $this->select(true, "photo", "users", "id = $id");
+                if (isset($this->results[0]['photo'])) $edit = true;
+                else $edit = false;
+                $oldName = $this->results[0]['photo'];
+                $photo['name'] = $this->keyFileName($photo['name'],"users", "photo");
+                $this->reset();
+                array_push($c,"photo = '".$photo['name']."'");
+                $c = [
+                    "photo = '".$photo['name']."'"
+                ];
+            }
+        }
 
-
-        if(strlen($pwd) == 0) $pwd = "NULL"; else $pwd = "'".$pwd."'";
-        if(strlen($numero_socio) == 0) $numero_socio = "NULL"; else $numero_socio = "'".$numero_socio."'";
-
-
-
-        $c = [
-            "mail = $mail",
-            "pwd = $pwd",
-            "tel = $tel",
-            "CF = $CF",
-            "nascita = $nascita",
-            "nascita_citta = $nascita_citta",
-            "nascita_pr = $nascita_pr",
-            "indirizzo = $indirizzo",
-            "indirizzo_cap = $indirizzo_cap",
-            "indirizzo_citta = $indirizzo_citta",
-            "indirizzo_pr = $indirizzo_pr"
-        ];
-        if(isset($nome)) array_push($c, "nome = $nome");
-        if(isset($cognome)) array_push($c,"cognome = $cognome");
-        if(isset($operativo)) array_push($c,"operativo = $operativo");
-        if(isset($numero_socio)) array_push($c,"numero_socio = $numero_socio");
-        if(!$this->checkSuperUser()){
+       if(!$this->checkSuperUser()){
             array_push($c,"updated = 1");
         }else{
             array_push($c,"updated = 0");
         }
-        if(strlen($photo['name'])>0) {
-            $this->select(true, "photo", "users", "id = $id");
-            if (isset($this->results[0]['photo'])) $edit = true;
-            else $edit = false;
-            $oldName = $this->results[0]['photo'];
-            $photo['name'] = $this->keyFileName($photo['name'],"users", "photo");
-            $this->reset();
-            array_push($c,"photo = '".$photo['name']."'");
-        }
-        if(isset($master)) array_push($c,"master = $master");
+
+
         $this->update("users", $c, "id = $id");
         if(strlen($photo['name'])>0) {
             $this->uploadFile($edit, "file/personal_photos/", "photo", "users", "photo", $photo['name'], $oldName);

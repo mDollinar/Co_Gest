@@ -3,7 +3,9 @@ require_once "crux/printFunctions.php";
 require_once "inc/head.php";
 extract($_GET);
 ?>
-<br />
+<div id="maincontent">
+
+    <br />
     <h1>Aggiornamento Dati Personali</h1>
 <br />
 <?php
@@ -87,13 +89,17 @@ if($action != "save") {
 }else{
     extract($_POST);
     extract($_FILES);
-    $gest->updateUserData();
+    $gest->updateUserData($sec, $id);
     $url = "home.php";
     if(isset($_GET['o'])){
-        $url = "view_user.php?".$_GET['o'];
+        $url = "view_user.php?id=$id&o=".$_GET['o'];
     }
     $buttons = [array("url"=>$url, "value"=>"Torna Indietro", "class"=>"info")];
     printAlert("success", "Account aggiornato con successo!", $buttons);
 }
 
+
 //todo: Art39
+
+    ?>
+</div>

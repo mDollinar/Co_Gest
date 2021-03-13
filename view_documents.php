@@ -3,6 +3,7 @@ require_once "inc/head.php";
 require_once "crux/printFunctions.php";
 ?>
 <br />
+<div id="maincontent">
 <h1>Anagrafica Documenti</h1>
 <br />
 <a href="crud_document.php?action=choose&v=mas" class="btn btn-info add-button">Aggiungi</a>
@@ -10,3 +11,5 @@ require_once "crux/printFunctions.php";
 $ret = $gest->buildDocumentMatrix();
 
 printTable("view_documents", $ret['head'], $ret['body'], "file/document", $ret['order']);
+?>
+</div>

@@ -4,6 +4,7 @@ require_once "crux/printFunctions.php";
 extract($_GET);
 extract($_POST);
 ?>
+<div id="maincontent">
 <?php
 if($action == "y"){
     $gest->approveUser($id);
@@ -12,6 +13,7 @@ if($action == "y"){
 }elseif ($action == "n") {
     ?>
     <br />
+    
     <h1>Approvazione nuovi Utenti</h1>
     <br />
     <?php
@@ -33,3 +35,5 @@ if($action == "y"){
 
     printTable("check_users", ['Cognome', 'Nome', 'Mail', 'Azioni'], $gest->results, null, ['cognome', 'nome', 'mail'], null, $addFields);
 }
+?>
+</div>

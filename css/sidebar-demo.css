@@ -1,0 +1,122 @@
+  .sidebar-class {
+    height: 100%;
+    width: 260px;
+    position: fixed;
+    z-index: 2020;
+    left: -260px;
+    margin-top: 55px;
+    background-color: #2E4D72 !important;
+    overflow-x: hidden;
+    transition: 0.5s;
+    float: left;
+  }
+  
+  .sidebar-class a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 16px;
+    color: #fff;
+    display: block;
+    transition: 0.3s;
+  }
+
+  .sidebar-class a:focus {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 16px;
+    color: rgb(255, 2, 2);
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidebar-class a:hover {
+    color: #6c89ac;
+  }
+  
+  /*.sidebar-class .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 16px;
+    margin-left: 50px;
+    color:white;
+  }
+  
+  .openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #2E4D72;
+    color: white;
+    padding: 10px 15px;
+    border: solid;
+    margin-top:  -15px;;
+  }
+  
+  .openbtn:hover {
+    background-color: #fff;
+    color: #2E4D72;
+    border: solid;
+  }
+  */
+  #main {
+    position: fixed;
+    transition: margin-left .5s;
+  }
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidebar-class {padding-top: 15px;}
+    .sidebar-class a {font-size: 18px;}
+  }
+
+  .card-sidebar {
+	position: relative;
+	/* display: -ms-flexbox; */
+	display: flex;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	min-width: 0;
+	word-wrap: break-word;
+	background-color: #2E4D72;
+	background-clip: border-box;
+	border: 1px solid rgba(0,0,0,.125);
+}
+
+.btn-link {
+	font-weight: 400;
+	color: #fff !important;
+	text-decoration: none;
+}
+
+.btn-primary {
+  width: auto !important;
+  background-color: #2E4D72;
+  border-radius: 0px;
+}
+
+button.btn {
+	display: block;
+	margin: 10px 0 !important; 
+}
+
+.list-group-item {
+	padding: 5px;
+	text-align: left !important;
+	background: #2E4D72 !important;
+} 
+
+.btn-primary.focus, .btn-primary:focus {
+	color: #fff;
+	background-color: #2E4D72;
+	border-color: transparent !important;
+	box-shadow: 0 0 0 0 !important;
+}
+
+.btn-danger {
+  border-radius: 0px !important;
+}
+
+#gestione {
+  float: left;
+}
+

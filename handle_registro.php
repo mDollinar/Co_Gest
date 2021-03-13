@@ -2,7 +2,8 @@
 require_once "inc/head.php";
 require_once "crux/printFunctions.php";
 ?>
-    <br><h1>Registro Iscrizioni</h1><br>
+<div id="maincontent">
+    <br /><h1>Registro Iscrizioni</h1><br>
 <?php
 $body = $gest->getRegistro();
 for($i=0; $i<count($body); $i++){
@@ -12,3 +13,5 @@ for($i=0; $i<count($body); $i++){
 }
 $addFields = ["<a href='crud_registro.php?action=edit&id=%id%'>%edit%</a>", "<a href='crud_registro.php?action=del&id=%id%'>%delete%</a>"];
 printTable("registro", ['Data', 'Evento', 'Socio', 'Azioni'], $body, "file", ['giorno', 'ingresso', 'user_cn'], null, $addFields);
+?>
+</div>

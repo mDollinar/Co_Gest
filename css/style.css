@@ -64,6 +64,8 @@ input.btn.btn-info, input.btn.btn-danger{
     font-weight: bold;
 }
 input#attach_front+a, input#attach_back+a, input#attach_master+a, input#photo+a {
+    display: block;
+    width: 100%;
     text-align: left;
     margin: 0;
     font-size: 0.9em;
@@ -83,6 +85,7 @@ a:hover{
 
 .container{
     margin-top: 20px;
+    max-width: 90%;
 }
 .btn-group button{
     margin-right: 5px;
@@ -162,7 +165,7 @@ img.sign{
     margin-left: 25px;
     margin-bottom: 25px;
     position: absolute;
-    margin-top: -75px;
+    margin-top: -25px;
     vertical-align: middle;
 }
 
@@ -174,9 +177,11 @@ img.sign{
     vertical-align: middle;
 }
 
-.res, .dom, .anag, .contacts, .photo{
+.res, .dom, .anag, .contacts, .photo, .asso, .op{
     float: left;
     margin: 0 20px;
+    padding-top: 10px;
+
 }
 
 /*Aggiunte del Demo */
@@ -185,12 +190,6 @@ img.imglogo {
     display: block;
     margin: 20px auto;
     width: 15%;
-}
-
-.imglogo-small {
-    float: left;
-    max-width: 75px;
-    margin: 5px 5px;
 }
 
 .tuttigliutenti {
@@ -210,8 +209,9 @@ img.imglogo {
 }
 
 .sidebar{
-    width: 400px;
     height: 100vh;
+    margin-top: 50px;
+    padding-top: 5px;
 }
 
 .sidebar, #side-toggle{
@@ -223,8 +223,7 @@ img.imglogo {
 }
 
 #side-toggle{
-    margin-left: 5px;
-    margin-top: 15px;
+    padding-left: 10px;
 }
 
 .form-group h1{
@@ -239,13 +238,90 @@ img.imglogo {
     min-width: 150px;
 }
 
-.anag img{
-    width: 400px;
-}
 
+h1>a>.fa{
+    font-size: 0.8em;
+}
 
 @media screen and (max-width: 1100px){
     .mobile_hide, .add-button{
         display: none !important;
     }
+}
+
+/*.list-group-item.sidebarlist{
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+}*/
+.list-group-flush .dropdown-item{
+    padding: 0;
+}
+.btn-outline-primary:focus {
+    box-shadow: none;
+}
+.btn-danger:focus {
+    box-shadow: none;
+}
+
+.table {
+    /*float:left;*/
+	width: 100%;
+	margin-bottom: 1rem;
+	color: #212529;
+    margin-top: 20px;
+}
+
+#maincontent {
+    transition: 0.5s;
+    margin-top: 40px;
+}
+
+.top-bar {
+    background-color: #2e4d72;
+    color: white;
+    width: 100%;
+    padding-left: 5px;
+    z-index: 2;
+  }
+
+  #primo-pulsante {
+      border-top: 0;
+  }
+
+  .dropdown-menu {
+      border: 0;
+  }
+
+  .dropdown-item a:hover {
+    background-image: none !important;
+    background-color: red i !important;
+}
+
+.row-utente {
+    border: none !important;
+}
+
+.fototessera {
+    max-width: 200px;
+    max-height: 276px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+}
+
+.btn-utili {
+    margin-left: 10px;
+}
+
+.tips{
+    margin-top: 70px;
+    max-width: 300px;
+    text-align: justify;
+    padding: 5px;
+    
+}
+
+.home {
+    margin-top: 80px !important;
 }
