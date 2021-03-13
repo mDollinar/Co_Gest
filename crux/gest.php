@@ -438,9 +438,20 @@ class Gest extends MultiFunction {
         echo "</ul>";
         echo "</div></div></div>";
     }
-    public function checkEditedUsers(){
+    public function checkEditedUsers(){//controllo su tutti gli utenti
         $this->reset();
-        $this->funct("id", "users", "COUNT", "abilis = 1 and updated = 1");
+        $this->funct("id", "users", "COUNT", "abilis = 1 and (anag_updated = 1 OR cont_updated=1 OR photo_updated=1 OR res_updated=1)");
+        if($this->results[0]['id']>0) {
+            $this->reset();
+            return true;
+        }else{
+            $this->reset();
+            return false;
+        }
+    }
+    public function checkEditedUser($id){//controllo su un unico utente
+        $this->reset();
+        $this->funct("id", "users", "COUNT", "abilis = 1 and (anag_updated = 1 OR cont_updated=1 OR photo_updated=1 OR res_updated=1) AND id = $id");
         if($this->results[0]['id']>0) {
             $this->reset();
             return true;
@@ -455,13 +466,13 @@ class Gest extends MultiFunction {
         <div class="card-body border-warning">
             <h6 class="card-title">I seguenti utenti hanno eseguito una modifica alla propria anagrafica.</h6>
             <div class="list-group">';
-        $this->select(true, "id, cognome, nome, mail", "users", "abilis = 1 and updated = 1", "cognome, nome");
+        $this->select(true, "id, cognome, nome, mail", "users", "abilis = 1 and (anag_updated = 1 OR cont_updated=1 OR photo_updated=1 OR res_updated=1)", "cognome, nome");
         echo "<ul class='list-group'>";
         for($i = 0; $i<count($this->results); $i++){
             echo "<li class='list-group-item bg-light border-warning'>";
             echo "<strong>".$this->results[$i]['cognome']." ".$this->results[$i]['nome']."</strong>";
             echo "<br /><div class='btn-group' role='group'>";
-            echo "<a href='crud_user.php?id=".$this->results[$i]['id']."&action=check_edit'><button type='button' class='btn btn-info'>Visualizza</button></a> ";
+            echo "<a href='view_user.php?id=".$this->results[$i]['id']."&action=check_edit'><button type='button' class='btn btn-info'>Visualizza</button></a> ";
             echo "</div>";
             echo "</li>";
         }
@@ -597,7 +608,15 @@ class Gest extends MultiFunction {
                     array_push($c,"photo_updated = 0");
                 }
             }
+        }elseif ($sec == "confirm_user"){
+            $c = [
+                "anag_updated = 0",
+                "cont_updated = 0",
+                "photo_updated = 0",
+                "res_updated = 0"
+            ];
         }
+
 
        if(!$this->checkSuperUser()){
             array_push($c,"updated = 1");

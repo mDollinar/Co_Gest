@@ -59,6 +59,14 @@ else $photo = "file/personal_photos/".$photo;
             <p>Operativo: ".printField($operativo)."</p>
         </div>
         ";
-    }?>
+    }
+    if($gest->checkEditedUser($id)){
+        echo "
+        <a class='btn btn-warning btn-user-updated' href='crud_user.php?action=confirm_user&id=$id'>Utente Aggiornato!</a>
+        ";
+    }
+    ?>
+
+
 </div>
 </div>

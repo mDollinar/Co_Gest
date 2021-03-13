@@ -187,7 +187,34 @@ img.sign{
 .photo{
     max-width: 250px;
 }
+li.list-group-item.bg-light.border-warning{
+    background-color: rgb(248, 249, 250) !important;
+}
 
+.card .list-group-item{
+    text-align: center !important;
+}
+
+div.card button.btn{
+    border-radius: 5px !important;
+    margin-left: 5px !important;
+}
+div.card a:first-child button.btn{
+    margin-left: 0 !important;
+}
+.card-deck{
+    margin: 0 15px;
+}
+p.alert a button.btn.btn-info{
+    display: inline-block;
+}
+
+.btn-user-updated{
+    clear: both;
+    display: block;
+    max-width: 250px;
+    margin: auto;
+}
 /*Aggiunte del Demo */
 
 img.imglogo {

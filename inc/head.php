@@ -15,9 +15,11 @@ require_once "crux/check_session.php";
         crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="inc/excel-like-bt/excel-bootstrap-table-filter-bundle.js"></script>
-    <link rel="stylesheet" href="css/style.0.1.css">
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js" type="text/javascript"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="inc/excel-like-bt/excel-bootstrap-table-filter-style.css">
+    <link rel="stylesheet" href="css/sidebar-demo.css" class="rel">
+    <link rel="stylesheet" href="css/style.0.1.css">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
