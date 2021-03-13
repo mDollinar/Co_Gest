@@ -6,7 +6,7 @@ require_once "inc/head-nm.php";
 <head>
     <meta charset="UTF-8">
     <title><?php echo $asso_ext_name; ?>Gestionale Volontari</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.0.1.css">
 </head>
 <body>
 <img src="<?php echo $asso_logo; ?>" alt="Logo" class="imglogo">
