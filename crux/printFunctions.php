@@ -11,8 +11,8 @@ function restring($string, $idV = null, $docV = null, $keyV = null){
     $str = str_replace("%print%", '<i class="fa fa-print" title="Stampa"></i>', $str);
     $str = str_replace("%select%", '<i class="fa fa-arrow-right" title="Seleziona"></i>', $str);
     $str = str_replace("%mail%", '<i class="fa fa-envelope" title="Invia mail"></i>', $str);
-    $str = str_replace("%admin%", '<i class="fa fa-cogs" title="gestisci"></i>
-', $str);
+    $str = str_replace("%admin%", '<i class="fa fa-cogs" title="gestisci"></i>', $str);
+    $str = str_replace("%alert_updated%", '<i class="fa fa-exclamation" title="Attenzione! Informazione Aggiornata!" style="color:red;"></i>&nbsp;&nbsp;<i class="fa fa-caret-right" title="Attenzione! Informazione Aggiornata!" style="color:red;"></i>', $str);
     if(isset($idV)) $str = str_replace("%id%", $idV, $str);
     if(isset($docV)) $str = str_replace("%id_document%", $docV, $str);
     if(isset($keyV)) $str = str_replace("%key%", $keyV, $str);

@@ -522,6 +522,11 @@ class Gest extends MultiFunction {
             ];
             if(isset($nome)) array_push($c, "nome = $nome");
             if(isset($cognome)) array_push($c,"cognome = $cognome");
+            if(!$this->checkSuperUser()){
+                array_push($c,"anag_updated = 1");
+            }else{
+                array_push($c,"anag_updated = 0");
+            }
 
         }elseif ($sec == "resdom"){
             global $indirizzo, $indirizzo_cap, $indirizzo_citta, $indirizzo_pr;
@@ -540,6 +545,11 @@ class Gest extends MultiFunction {
                 "indirizzo_citta = $indirizzo_citta",
                 "indirizzo_pr = $indirizzo_pr"
             ];
+            if(!$this->checkSuperUser()){
+                array_push($c,"res_updated = 1");
+            }else{
+                array_push($c,"res_updated = 0");
+            }
         }elseif ($sec == "cont"){
             global $tel, $mail;
             //TODO: aggiungere splitter per telefono verificando lo 0 iniziale per i fissi, con verifica del +39
@@ -550,6 +560,11 @@ class Gest extends MultiFunction {
                 "mail = $mail",
                 "tel = $tel"
             ];
+            if(!$this->checkSuperUser()){
+                array_push($c,"cont_updated = 1");
+            }else{
+                array_push($c,"cont_updated = 0");
+            }
         }elseif($sec == "pwd"){
             global $pwd;
             if(strlen($pwd) == 0) $pwd = "NULL"; else $pwd = "'".$pwd."'";
@@ -576,6 +591,11 @@ class Gest extends MultiFunction {
                 $c = [
                     "photo = '".$photo['name']."'"
                 ];
+                if(!$this->checkSuperUser()){
+                    array_push($c,"photo_updated = 1");
+                }else{
+                    array_push($c,"photo_updated = 0");
+                }
             }
         }
 

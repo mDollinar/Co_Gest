@@ -184,6 +184,10 @@ img.sign{
 
 }
 
+.photo{
+    max-width: 250px;
+}
+
 /*Aggiunte del Demo */
 
 img.imglogo {
