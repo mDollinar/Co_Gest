@@ -36,7 +36,7 @@ require_once "inc/head.php";
    '?>
 
     <div class="card-deck">
-            <div class="card home-tip" style="width: 18rem;">
+            <div class="card home-tip" style="width: 18rem; max-width: 250px;">
                 <div class="card-header">
                     Utilità
                 </div>

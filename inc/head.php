@@ -71,13 +71,15 @@ require_once "crux/check_session.php";
         </div>
     </div>
 </nav>
-
-<?php if($gest->checkSuperUser()) echo '
 <div class="top-bar" id="main">
-  <button class="btn btn-primary" id="gestione">☰ Gestisci Associazione</button>  
-<h1>
-Gestionale Associazione di Protezione Civile
-</h1></div>
+<?php if($gest->checkSuperUser()) echo '
+
+  <button class="btn btn-primary" id="gestione"><i class="fa fa-bars" aria-hidden="true"></i>
+ Gestisci Associazione</button>  
+
 ';?>
+    <h1>
+        Gestionale Associazione di Protezione Civile
+    </h1></div>
 <?php if($gest->checkSuperUser())include 'inc/sidebar.php';?>
 <br>
